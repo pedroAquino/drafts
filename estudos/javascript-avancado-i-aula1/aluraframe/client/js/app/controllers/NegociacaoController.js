@@ -12,8 +12,11 @@ class NegociacaoController {
 		);
 
 		this._listaNegociacoes = new ListaNegociacoes();
-
 		this._view.update(this._listaNegociacoes);
+
+		this._mensagem = new Mensagem('');
+		this._mensagemView = new MensagemView($("#mensagem"));
+		this._mensagemView.update(this._mensagem);
 	}
 
 	
@@ -40,5 +43,8 @@ class NegociacaoController {
 		this._limpaCampos();
 
 		this._view.update(this._listaNegociacoes);
+
+		this._mensagem.texto = "negociação criada com sucesso !";
+		this._mensagemView.update(this._mensagem);
 	}
 }
