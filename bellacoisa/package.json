@@ -1,0 +1,24 @@
+{
+  "name": "onlinecv",
+  "version": "1.0.0",
+  "description": "a simple CV",
+  "main": "app/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedroAquino/OnlineCV.git"
+  },
+  "author": "pedroAquino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pedroAquino/OnlineCV/issues"
+  },
+  "homepage": "https://github.com/pedroAquino/OnlineCV#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "pug": "^2.0.0-beta9",
+    "stylus": "^0.54.5"
+  }
+}
