@@ -3,6 +3,6 @@ import { FotoComponent } from './foto.component';
 
 @NgModule({
     declarations: [ FotoComponent ],
-    bootstrap: [ FotoComponent ]
+    exports: [ FotoComponent ]
 })
 export class FotoModule {}
