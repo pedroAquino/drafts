@@ -7,7 +7,7 @@ import { Http } from '@angular/http';
     selector: "listagem"
 })
 export class ListagemComponent {
-    fotos: Object[];
+    fotos: Object[] = [];
 
     constructor(http : Http) {
 
