@@ -5,7 +5,8 @@ import { FotoComponent } from "../foto/foto.component";
 @Component({
     moduleId: module.id,
     templateUrl: "./listagem.component.html",
-    selector: "listagem"
+    selector: "listagem",
+    styleUrls: ['./listagem.component.css']
 })
 export class ListagemComponent {
 

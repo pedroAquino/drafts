@@ -20,12 +20,13 @@
         </div>
     </div>
     <br/>
+</div>
+<div class="container-fluid">
     <div class="row">
-        <painel *ngFor="let foto of fotos | filtroPorTitulo : textoProcurado.value" titulo="{{foto.titulo | uppercase}}" class="col-md-2">
+        <painel *ngFor="let foto of fotos | filtroPorTitulo : textoProcurado.value" titulo="{{foto.titulo | uppercase}}" class="painel">
             <a [routerLink]="['/cadastro', foto._id]">
                 <foto url="{{foto.url}}" titulo="{{foto.titulo}}"></foto>
             </a>
-            
             <br/>
             <button class="btn btn-default" (click)="remover(foto)">
                 <i class="glyphicon glyphicon-remove"></i>

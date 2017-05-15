@@ -6,3 +6,8 @@
 .efeito {
     transition: all 1s;
 }
+
+.foto {
+    width: 260px;
+    height: 200px;
+}
