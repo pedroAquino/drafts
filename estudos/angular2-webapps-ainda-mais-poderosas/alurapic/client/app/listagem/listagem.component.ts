@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { Http } from '@angular/http';
+import { FotoService } from "../foto/foto.service";
+import { FotoComponent } from "../foto/foto.component";
 
 @Component({
     moduleId: module.id,
@@ -7,12 +8,17 @@ import { Http } from '@angular/http';
     selector: "listagem"
 })
 export class ListagemComponent {
-    fotos: Object[] = [];
 
-    constructor(http : Http) {
+    fotos: FotoComponent[] = [];
+    fotoService: FotoService;
+    mensagem: string = "";
 
-        http.get('/v1/fotos')
-            .map(res => res.json())
+    constructor(fotoService: FotoService) {
+
+        this.fotoService = fotoService;
+
+        this.fotoService
+            .lista()
             .subscribe(fotos => {
                 this.fotos = fotos;
                 console.log(this.fotos);
@@ -20,5 +26,22 @@ export class ListagemComponent {
                 console.error("Houve um erro ao buscar as imagens");
             });
 
+    }
+
+    remover(foto: FotoComponent) {
+        this.fotoService
+            .remover(foto)
+            .subscribe(() => {
+                let novasFotos = this.fotos.filter((item) => {
+                    return item._id != foto._id;
+                });
+                this.fotos = novasFotos;
+                
+                this.mensagem = "Foto  excluída com sucesso";
+
+                console.log("Foto  excluída com sucesso");
+            }, erro => {
+                console.error("Houve um erro ao excluir a foto");
+            });
     }
 }

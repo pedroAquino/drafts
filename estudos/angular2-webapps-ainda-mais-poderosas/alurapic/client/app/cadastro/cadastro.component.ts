@@ -1,7 +1,9 @@
 import { Component } from "@angular/core";
 import { FotoComponent } from "../foto/foto.component"
-import { Http, Headers } from "@angular/http"
 import { FormGroup, Validators, FormBuilder } from "@angular/forms"
+import { FotoService } from "../foto/foto.service";
+import { ActivatedRoute, Router } from "@angular/router";
+
 
 @Component({
     moduleId: module.id,
@@ -11,11 +13,30 @@ import { FormGroup, Validators, FormBuilder } from "@angular/forms"
 export class CadastroComponent {
     
     foto : FotoComponent = new FotoComponent();
-    http : Http;
     cadastroForm: FormGroup;
+    fotoService: FotoService;
+    route: ActivatedRoute;
+    router: Router;
+    mensagem: string = "";
 
-    constructor(http: Http, formBuilder: FormBuilder) {
-        this.http = http;
+    constructor(formBuilder: FormBuilder, fotoService: FotoService, route: ActivatedRoute,  router: Router) {
+
+        this.fotoService = fotoService;
+        this.route = route;
+        this.router = router;
+
+        this.route.params.subscribe(params => {
+            let id = params['id'];
+            
+            if(id) {
+                this.fotoService
+                    .buscaPorId(id)
+                    .subscribe(
+                        foto => this.foto = foto,
+                        erro => console.error(erro)
+                    );
+            }
+        })
 
         this.cadastroForm = formBuilder.group({
             titulo: ['', 
@@ -31,17 +52,20 @@ export class CadastroComponent {
     cadastrar(event) {
         event.preventDefault();
 
-        let headers = new Headers();
-        headers.append("Content-Type", "application/json");
+        this.fotoService
+            .cadastra(this.foto)
+            .subscribe(resposta => {
+                console.log("Sucesso !");
+                
+                this.mensagem = resposta.mensagem;
 
-        let foto = this.foto;
-
-        this.http.post("v1/fotos", 
-            JSON.stringify(foto), 
-            { headers: headers }
-        ).subscribe(() => {
-            console.log("Sucesso !");
-            this.foto = new FotoComponent();
-        }, error => console.log(error));
+                if(resposta.inclusao) {
+                    this.foto = new FotoComponent();
+                }
+                else {
+                    this.router.navigate(['']);
+                }
+                
+            }, error => console.log(error));
     }
 }
