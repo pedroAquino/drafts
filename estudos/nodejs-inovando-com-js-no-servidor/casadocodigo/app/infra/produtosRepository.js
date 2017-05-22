@@ -1,12 +1,15 @@
 function ProdutosRepository(connection) {
-    
-    this.lista = function(callBack) {
-        connection.query('select * from produtos', callback)
-    }
-
-    return this;
+    this._connection = connection;
 }
 
-module.exports = function() {
+ProdutosRepository.prototype.lista = function(callback) {
+    this._connection.query('select * from produtos',callback);    
+};
+
+ProdutosRepository.prototype.salva = function(produto, callback) {
+    this._connection.query('insert into produtos set ?', produto, callback);    
+};
+
+module.exports = function(){
     return ProdutosRepository;
 }
