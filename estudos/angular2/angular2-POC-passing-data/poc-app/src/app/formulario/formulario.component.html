@@ -1,0 +1,17 @@
+<p>
+  formulario 
+</p>
+<form>
+  <div>
+      <input type="text" name="nome" [(ngModel)]="nome" />
+  </div>
+  <div>
+      <input type="text" name="sobrenome" [(ngModel)]="sobrenome" />
+  </div>
+  <div>
+      <input type="button" value="salvar" (click)="salvar();" />
+  </div>
+  <div>
+    <a [routerLink]="['/exibicao']">Exibir</a>
+  </div>
+</form>

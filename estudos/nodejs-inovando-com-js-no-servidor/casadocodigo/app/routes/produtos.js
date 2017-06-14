@@ -28,6 +28,17 @@ module.exports = function(app) {
         let connection =  app.infra.dbConnectionFactory();
         let produtosRepository = new app.infra.ProdutosRepository(connection);
 
+        req.assert('titulo', 'titulo é obrigatório')
+            .notEmpty();
+
+        let erros = req.validationErrors();
+        
+        if(erros) {
+            res.redirect('produtos/novo');
+            return;
+        }
+
+
         produtosRepository.salva(req.body, function(erros, results) {
              res.redirect('/produtos');
         });
