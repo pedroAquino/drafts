@@ -8,13 +8,15 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { ExibicaoComponent } from './exibicao/exibicao.component';
 
 import { routing  } from './app.routes';
+import { AnimacaoComponent } from './animacao/animacao.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FormularioComponent,
-    ExibicaoComponent
+    ExibicaoComponent,
+    AnimacaoComponent
   ],
   imports: [
     BrowserModule,
