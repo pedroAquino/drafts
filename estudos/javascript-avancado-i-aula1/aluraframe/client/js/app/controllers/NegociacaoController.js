@@ -47,4 +47,16 @@ class NegociacaoController {
 		this._mensagem.texto = "negociação criada com sucesso !";
 		this._mensagemView.update(this._mensagem);
 	}
+
+	removeNegociacao(evt) {
+		evt.preventDefault();
+		
+		this._listaNegociacoes.esvazia();
+		this._limpaCampos();
+
+		this._view.update(this._listaNegociacoes);
+
+		this._mensagem.texto = "negociação removida com sucesso !";
+		this._mensagemView.update(this._mensagem);
+	}
 }
