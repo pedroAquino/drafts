@@ -11,9 +11,10 @@ class NegociacaoController {
 			$("#negociacoes")
 		);
 
-		this._listaNegociacoes = new ListaNegociacoes();
-		this._view.update(this._listaNegociacoes);
-
+		this._listaNegociacoes = new ListaNegociacoes(this, function(model) {
+			this._view.update(model);
+		});
+		
 		this._mensagem = new Mensagem('');
 		this._mensagemView = new MensagemView($("#mensagem"));
 		this._mensagemView.update(this._mensagem);
