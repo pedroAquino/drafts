@@ -28,7 +28,7 @@ let observer = observable.subscribe(
     value => console.log(`observer 1 ${value}`),
     // chamado quando a função error() é chamada no observable
     err => console.log('Error !'),
-    //chamado quando a função complete é chamada no observable
+    //chamado quando a função complete() é chamada no observable
     () => { 
         console.log('OBSERVER1 COMPLETED');
         console.log('INICIANDO OBSERVER2');
