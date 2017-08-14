@@ -2,7 +2,16 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.float-left {
-    float: left;
-    margin-left: 20px;
+#whoToFollow {
+    list-style: none;
+}
+
+#whoToFollow li {
+    padding: 10px;
+}
+
+.avatar-url {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
 }

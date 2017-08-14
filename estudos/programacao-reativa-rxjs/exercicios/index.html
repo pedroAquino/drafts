@@ -1,22 +1,21 @@
 <html>  
     <head> 
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.0.1/Rx.js"></script>
         <link rel="stylesheet" href="styles.css" /> 
     </head>
     <body>
-        <button id="button">
-            START STREAM
-        </button>
         <div>
-            <h1> CLICK STREAM</h1>
-            <div id="clickStream"></div>
-            <br/>
-            <h1 style="clear:both"> BUFFERED CLICK STREAM</h1>
-            <div id="bufferedClickStream"></div>
-            <br/>
-            <h1 style="clear:both">MULTIPLE  CLICK STREAM</h1>
-            <div id="mappedClickStream"></div>
+            <button id="refreshBtn">
+                REFRESH !
+            </button>
+            <ul id="whoToFollow">
+            </ul>
         </div>
-        <script src="scripts.js"></script>
+        <script src="./scripts.js"></script>
     </body>
 </html>
