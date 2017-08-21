@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
 
 @Component({
@@ -12,12 +12,20 @@ export class HomePage {
 
    constructor(
      public navCtrl: NavController,
-     private _http: Http) {
+     private _http: Http,
+     private _loadingCtrl: LoadingController) {
+
+      let loader = this._loadingCtrl.create({
+        content: 'Carregando...'
+      });
+
+      loader.present();
 
       this._http
         .get('https://aluracar.herokuapp.com/')
         .map(result => result.json())
         .toPromise()
-        .then(data => this.carros = data);
+        .then(data => this.carros = data)
+        .then(() => loader.dismiss());
   }
 }
