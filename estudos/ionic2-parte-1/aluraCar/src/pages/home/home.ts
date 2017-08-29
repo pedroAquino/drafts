@@ -24,7 +24,7 @@ export class HomePage implements OnInit {
     loader.present();
 
     this._http
-      .get('https://aluracar.herokuapp.comsss/')
+      .get('https://aluracar.herokuapp.com/')
       .map(result => result.json())
       .toPromise()
       .then(data => this.carros = data)
@@ -35,5 +35,9 @@ export class HomePage implements OnInit {
         }).present()
       })
       .then(() => loader.dismiss());
+  }
+
+  seleciona(carro) {
+    console.log(carro);
   }
 }
