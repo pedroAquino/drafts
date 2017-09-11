@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { NavParams } from 'ionic-angular';
+import { Carro } from '../../domain/carro/carro';
+import { Acessorio } from '../../domain/carro/acessorio';
 
 @Component({
     templateUrl: 'escolha.html'
 })
 export class EscolhaPage implements OnInit {
 
-    public carro: any;
-    public acessorios: any;
+    public carro: Carro;
+    public acessorios: Acessorio[];
     private _precoTotal: number;
 
     constructor(private _navParams: NavParams) {
@@ -26,7 +28,7 @@ export class EscolhaPage implements OnInit {
         return this._precoTotal;
     }
 
-    onToggleChange(toggleChecked: boolean, acessorio: any) {
+    onToggleChange(toggleChecked: boolean, acessorio: Acessorio) {
         toggleChecked ?
             this._precoTotal += acessorio.preco :
             this._precoTotal -= acessorio.preco;
