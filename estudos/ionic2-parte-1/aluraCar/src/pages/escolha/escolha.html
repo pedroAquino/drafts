@@ -27,9 +27,12 @@
                             <h2>{{ acessorio.nome }}</h2>
                             <h2>R$ {{ acessorio.preco }}</h2>
                         </ion-label>
-                        <ion-toggle></ion-toggle>
+                        <ion-toggle #toggle (ionChange)="onToggleChange(toggle.checked, acessorio)"></ion-toggle>
                     </ion-item>
                 </ion-item-group>
+                <ion-item-divider color="light">
+                    PREÇO TOTAL: {{ precoTotal }} 
+                </ion-item-divider>
         </ion-card-content>
     </ion-card>
     <button ion-button block> Avançar no agendamento </button>
