@@ -6,6 +6,9 @@ import { EscolhaPage } from '../pages/escolha/escolha';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { AgendamentoService } from '../domain/agendamento/agendamento.service';
 
+import { Storage } from '@ionic/storage';
+import { StorageFactory } from './storage.factory';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
@@ -28,7 +31,8 @@ import 'rxjs/add/operator/toPromise';
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AgendamentoService
+    AgendamentoService,
+    { provide: Storage, useFactory: StorageFactory.createStorage }
   ]
 })
 export class AppModule {

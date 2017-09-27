@@ -52,16 +52,14 @@ export class CadastroPage {
     }
 
     this._agendamentoService
-    .agenda(this.agendamento)
-    .then(() => {
-      this.alerta.setSubTitle('Sucesso !');
-      this.alerta.present();
-    })
-    .catch(err =>  {
-      console.error(err);
-      this.alerta.setSubTitle('Erro !');
-      this.alerta.present();
-    });
+      .agenda(this.agendamento)
+      .then(result => {
+        result ?
+          this.alerta.setSubTitle('Sucesso !') :
+          this.alerta.setSubTitle('Erro !');
+        this.alerta.present();
+      });
+
   }
 
 }
