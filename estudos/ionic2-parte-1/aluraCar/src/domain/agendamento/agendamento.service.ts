@@ -16,12 +16,17 @@ export class AgendamentoService {
     agenda(agendamento: Agendamento) {
         let api = `https://aluracar.herokuapp.com/salvarpedido?carro=${agendamento.carro.nome}&nome=${agendamento.nome}&preco=${agendamento.preco}&endereco=${agendamento.endereco}&email=${agendamento.email}&dataAgendamento=${agendamento.data}`;
         
-        return this._http.get(api)
-            .map(result => result.json())
-            .toPromise()
-            .then(result => agendamento.confirmado = true,
-                error => console.error(error))
-            .then(() => this._dao.salva(agendamento))
-            .then(() => agendamento.confirmado);
+        return this._dao.ehAgendamentoDuplicado(agendamento)
+            .then(duplicado => {
+                if(duplicado) { throw new Error('Agendamento já realizado !'); }
+
+                return this._http.get(api)
+                    .map(result => result.json())
+                    .toPromise()
+                    .then(result => agendamento.confirmado = true,
+                        error => console.error(error))
+                    .then(() => this._dao.salva(agendamento))
+                    .then(() => agendamento.confirmado);
+            });
     }
 }

@@ -58,6 +58,9 @@ export class CadastroPage {
           this.alerta.setSubTitle('Sucesso !') :
           this.alerta.setSubTitle('Erro !');
         this.alerta.present();
+      }).catch(error => {
+        this.alerta.setSubTitle(error.message);
+        this.alerta.present();
       });
 
   }

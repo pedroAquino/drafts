@@ -15,4 +15,10 @@ export class AgendamentoDao {
     salva(agendamento: Agendamento) {
         return this._storage.set(this._getKey(agendamento), agendamento);
     }
+
+    ehAgendamentoDuplicado(agendamento: Agendamento) {
+        return this._storage
+            .get(this._getKey(agendamento))
+            .then(agendamento => agendamento ? true : false);
+    }
 }
