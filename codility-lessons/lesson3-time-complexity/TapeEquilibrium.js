@@ -50,16 +50,18 @@ Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized cop
 
 // you can write to stdout for debugging purposes, e.g.
 // console.log('this is a debug message');
-
-function sum(total, num) { return total + num };
+// 50% de score
 
 function solution(A) {
     // write your code in JavaScript (Node.js 8.9.4)
-    let number = 0;
-    for (let P = 1; P < A.length; P++) {
-         let result = Math.abs(A.slice(0, P).reduce(sum) - A.slice(P, A.length).reduce(sum));
-         number = (!number || result <= number) ? result : number;
+    let results = [];
+    let N = A.length;
+    let sum = (total, num) => total + num;
+    
+    for (let P = 1; P < N; P++) {
+         results.push(Math.abs(A.slice(0, P).reduce(sum) - A.slice(P, N).reduce(sum)));
     }
     
-    return number;
+    return Math.min(...results);
 }
+
