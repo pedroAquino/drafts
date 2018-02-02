@@ -1,0 +1,59 @@
+<div class="container">
+    <p *ngIf="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>CADASTRO DA IMAGEM {{foto.titulo | uppercase}}</h3>
+        </div>
+    </div>
+    <form class="row" [formGroup]="cadastroForm" (submit)="cadastrar($event)" >
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Título</label>
+                <input
+                    class="form-control" 
+                    name="titulo" 
+                    formControlName="titulo"
+                    [(ngModel)]="foto.titulo" 
+                    autocomplete="off">  
+                <br/>
+                <div *ngIf="cadastroForm.controls.titulo.invalid">
+                    <span *ngIf="cadastroForm.controls.titulo.errors.required" class="form-control alert-danger">
+                        Título obrigatório
+                    </span>
+                    <span *ngIf="cadastroForm.controls.titulo.errors.minlength" class="form-control alert-danger">
+                        Título deve ter, no mínimo 4 caracteres
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>URL</label>
+                <input 
+                    class="form-control" 
+                    name="url"
+                    formControlName="url"
+                    [(ngModel)]="foto.url"  
+                    autocomplete="off">
+                <br/>
+                <span *ngIf="cadastroForm.controls.url.invalid" class="form-control alert-danger">
+                    URL obrigatória
+                </span> 
+            </div>
+            <div class="form-group">
+                <label>Descrição</label>
+                <textarea
+                    class="form-control" 
+                    name="descricao"
+                    formControlName="descricao"
+                    [(ngModel)]="foto.descricao" 
+                    autocomplete="off">
+                </textarea>
+            </div>
+            <botao  estilo="btn btn-primary" nome="Salvar" [desabilitado]="cadastroForm.invalid ? 'disabled': ''" tipo="submit"></botao>
+             <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
+            <hr>
+        </div>
+        <div class="col-md-6">
+            <foto [titulo]="foto.titulo" [url]="foto.url"></foto>
+        </div>
+    </form>
+</div>

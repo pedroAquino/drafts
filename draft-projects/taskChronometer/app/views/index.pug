@@ -1,0 +1,19 @@
+doctype html
+html(ng-app='TaskCountDownApp')
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet' href='/javascripts/vendor/bootstrap/dist/css/bootstrap.min.css')
+  body
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          a(href="#/").navbar-brand
+            span.glyphicon.glyphicon-time
+            | &nbsp; TASK COUNTDOWN APPLICATION
+    div#content(ng-view)
+
+    script(type='text/javascript' src='/javascripts/vendor/angular/angular.min.js')
+    script(type='text/javascript' src='/javascripts/vendor/angular-route/angular-route.min.js')
+    script(type='text/javascript' src='/javascripts/app/task/task.js')
+    script(type='text/javascript' src='/javascripts/app/app.js')

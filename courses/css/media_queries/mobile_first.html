@@ -1,0 +1,53 @@
+<html><head>
+
+<meta name="viewport" content="width=device-width" />
+
+<style type="text/css">
+.container-responsive {
+	background: #eaeaed;
+	padding: 10px;
+}
+
+
+.column-1-responsive, 
+.column-2-responsive { 
+    background: #2db34a;
+    text-align: center;
+    padding: 5px 0px 100px;
+    margin: 1.858736059%;
+}
+
+@media all and (min-width:420px) {
+
+.container-responsive { 
+    overflow:auto;
+    width: 59%;
+}
+
+
+.column-1-responsive { 
+   float:left;
+   width: 56.25%;
+}
+
+.column-2-responsive { 
+   float:right;
+   width: 33.25%
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="container-responsive">
+  	<h4>LAYOUT RESPONSIVO MOBILE FIRST</h4>
+	<div class="column-1-responsive">COLUMN 1</div>
+  	<div class="column-2-responsive">COLUMN 2</div>
+</div>  
+  
+  
+</body></html>

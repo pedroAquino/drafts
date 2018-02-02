@@ -1,0 +1,27 @@
+#tasks.container(ng-init='list()')
+  .row
+    .col-lg-12
+      a(href="#tasks/add").btn.btn-default
+        i.glyphicon.glyphicon-plus
+        | &nbsp; Add
+  .row(ng-repeat='task in tasks')
+    .task-card.col-lg-12
+      h4 {{task.title}}
+      p
+        b STATUS:
+        | &nbsp; {{task.status}}
+      p {{task.description}}
+      p
+        b ESTIMATED TIME:
+        | &nbsp; {{task.estimatedTime}}:00 minutes
+      p(ng-if="task.status != 'new'")
+        b REALIZED TIME:
+        | &nbsp; {{task.realizedTime}}:00 minutes
+      div
+        a(href="#tasks/task/{{task._id}}" ng-if="task.status != 'done'").btn.btn-default
+          span.glyphicon.glyphicon-arrow-right
+          | &nbsp; Do it !
+        button(type="button"  ng-if="task.status == 'done'" ng-click="archive(task)").btn.btn-default
+          i.glyphicon.glyphicon-file
+          | &nbsp; Archive
+      hr
