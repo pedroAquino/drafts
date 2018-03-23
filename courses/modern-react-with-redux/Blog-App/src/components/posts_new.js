@@ -1,23 +1,40 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
+import { createPost } from '../actions/index';
+import { connect } from 'react-redux';
 
 class PostsNew extends React.Component {
 
     renderField(field) {
+        const { meta: {touched, error} } = field;
+        const errorClassName = touched && error ? 'has-danger' : '';
+
         return(
-            <div className="form-group">
+            <div className={`form-group ${errorClassName}`}>
                 <label>{ field.label }</label>
                 <input
                     type="text"
                     className="form-control"
                     {...field.input} />
+                <div className="text-help">
+                    { touched ? error : '' }
+                </div>
             </div>
         );
     }
 
+    onSubmit(values) {
+        this.props.createPost(values, () => {
+            this.props.history.push('/');
+        });
+    }
+
     render() {
+        const { handleSubmit } = this.props;
+
         return(
-            <form>
+            <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
                 <h3>New Post</h3>
                 <Field
                     name="title"
@@ -34,6 +51,12 @@ class PostsNew extends React.Component {
                     label="Content"
                     component={ this.renderField }
                 />
+                <button type="submit" className="btn btn-primary">
+                    Submit
+                </button>
+                <Link to="/" className="btn btn-danger left-spaced">
+                    Cancel
+                </Link>
             </form>
         );
     }
@@ -47,7 +70,7 @@ function validate(values) {
     }
 
     if (!values.categories) {
-        errors.categories = 'Please enter a categories'
+        errors.categories = 'Please enter some categories'
     }
 
     if (!values.content) {
@@ -60,4 +83,6 @@ function validate(values) {
 export default reduxForm({
     validate,
     form: 'PostsNewForm'
-})(PostsNew);
+})(
+   connect(null, {createPost})(PostsNew)
+);
