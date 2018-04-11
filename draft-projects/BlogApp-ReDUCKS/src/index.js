@@ -5,16 +5,24 @@ import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import App from './components/app';
-import reducers from './reducers';
+//import reducers from './reducers';
+import createSagaMiddleware  from 'redux-saga';
+import fetchPostsSaga from './ducks/operations';
 import PostsIndex from './components/posts_index';
 import PostsNew from './components/posts_new';
 import PostShow from './components/posts_show';
 import promise from 'redux-promise';
+import reducer from './ducks';
 
-const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+const sagaMiddleware = createSagaMiddleware();
+//const createStoreWithMiddleware = applyMiddleware(sagaMiddleware)(createStore);
+const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+
+
+//sagaMiddleware.run(fetchPostsSaga);
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>
     <BrowserRouter>
       <div>
         <Switch>

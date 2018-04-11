@@ -1,25 +1,27 @@
-import axios from 'axios';
+import types from './types';
 
-export const FETCH_POSTS = 'FETCH_POSTS';
-export const CREATE_POST = 'CREATE_POST';   
-export const FETCH_POST = 'FETCH_POST';
-export const DELETE_POST = 'DELETE_POST';
-
-const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
-const API_KEY = 'pedroAquino1234';
-
-/*
-export function fetchPosts() {
-    const request = axios.get(`${ROOT_URL}/posts?key=${API_KEY}`);
-
+function fetchPosts() {
     return {
-        type: FETCH_POSTS,
-        payload: request
+        type: types.FETCH_POSTS,
+        payload: 'Ok'
     };
 }
-*/
 
-export function createPost(blogPost, callBack) {
+function fetchPostsSuceeded(posts) {
+    return {
+        type: types.FETCH_POSTS_SUCCEEDED,
+        posts: posts
+    }
+}
+
+function fetchPostsFailed() {
+    return {
+        type: types.FETCH_POSTS_FAILED,
+        message: ''
+    };
+}
+
+function createPost(blogPost, callBack) {
     const request = axios.post(`${ROOT_URL}/posts?key=${API_KEY}`, blogPost)
         .then(() => callBack());
 
@@ -29,7 +31,7 @@ export function createPost(blogPost, callBack) {
     };
 }
 
-export function fetchPost(id) {
+function fetchPost(id) {
     const request = axios.get(`${ROOT_URL}/posts/${id}?key=${API_KEY}`);
 
     return {
@@ -38,7 +40,7 @@ export function fetchPost(id) {
     }
 }
 
-export function deletePost(id, callback) {
+function deletePost(id, callback) {
     const request = axios.delete(`${ROOT_URL}/posts/${id}?key=${API_KEY}`)
         .then(() => {
             callback();
@@ -49,3 +51,10 @@ export function deletePost(id, callback) {
         payload: request
     };
 }
+
+export default {
+    fetchPosts,
+    createPost,
+    fetchPost,
+    deletePost
+};
