@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Link from './Link.react';
+
+import Link from './link/Link.react';
+import CheckBoxWithLabel from './checkbox/CheckBoxWithLabel';
 
 class App extends Component {
   render() {
@@ -14,9 +16,11 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
           <br/>
-          <Link>
-            Go to anywhere
+          <Link page="http://www.facebook.com">
+            Facebook
           </Link>
+          <br/>
+          <CheckBoxWithLabel labelOn="On" labelOff="Off" />
         </p>
 
       </div>
