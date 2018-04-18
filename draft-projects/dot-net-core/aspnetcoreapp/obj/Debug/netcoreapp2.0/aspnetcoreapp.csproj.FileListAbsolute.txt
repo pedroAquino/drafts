@@ -1,0 +1,10 @@
+C:\Projects\drafts\draft-projects\dot-net-core\aspnetcoreapp\bin\Debug\netcoreapp2.0\aspnetcoreapp.deps.json
+C:\Projects\drafts\draft-projects\dot-net-core\aspnetcoreapp\bin\Debug\netcoreapp2.0\aspnetcoreapp.runtimeconfig.json
+C:\Projects\drafts\draft-projects\dot-net-core\aspnetcoreapp\bin\Debug\netcoreapp2.0\aspnetcoreapp.runtimeconfig.dev.json
+C:\Projects\drafts\draft-projects\dot-net-core\aspnetcoreapp\bin\Debug\netcoreapp2.0\aspnetcoreapp.dll
+C:\Projects\drafts\draft-projects\dot-net-core\aspnetcoreapp\bin\Debug\netcoreapp2.0\aspnetcoreapp.pdb
+C:\Projects\drafts\draft-projects\dot-net-core\aspnetcoreapp\obj\Debug\netcoreapp2.0\aspnetcoreapp.csproj.CoreCompileInputs.cache
+C:\Projects\drafts\draft-projects\dot-net-core\aspnetcoreapp\obj\Debug\netcoreapp2.0\aspnetcoreapp.AssemblyInfoInputs.cache
+C:\Projects\drafts\draft-projects\dot-net-core\aspnetcoreapp\obj\Debug\netcoreapp2.0\aspnetcoreapp.AssemblyInfo.cs
+C:\Projects\drafts\draft-projects\dot-net-core\aspnetcoreapp\obj\Debug\netcoreapp2.0\aspnetcoreapp.dll
+C:\Projects\drafts\draft-projects\dot-net-core\aspnetcoreapp\obj\Debug\netcoreapp2.0\aspnetcoreapp.pdb
