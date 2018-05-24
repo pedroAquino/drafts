@@ -12,6 +12,26 @@
 //   4
 //   buzz
 
-function fizzBuzz(n) {}
+function fizzBuzz(n) {
+  const isMultipleOf = (number, multiple) => {
+    return number % multiple === 0;
+  };
+
+  for (let i = 1; i <= n; i++) {
+    let print = "";
+
+    if (isMultipleOf(i, 3)) {
+      print += "fizz";
+    }
+
+    if (isMultipleOf(i, 5)) {
+      print += "buzz";
+    }
+
+    print = print ? print : i;
+
+    console.log(print);
+  }
+}
 
 module.exports = fizzBuzz;
