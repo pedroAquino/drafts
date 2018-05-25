@@ -18,19 +18,15 @@ function fizzBuzz(n) {
   };
 
   for (let i = 1; i <= n; i++) {
-    let print = "";
-
-    if (isMultipleOf(i, 3)) {
-      print += "fizz";
+    if (isMultipleOf(i, 3) && isMultipleOf(i, 5)) {
+      console.log("fizzbuzz");
+    } else if (isMultipleOf(i, 3)) {
+      console.log("fizz");
+    } else if (isMultipleOf(i, 5)) {
+      console.log("buzz");
+    } else {
+      console.log(i);
     }
-
-    if (isMultipleOf(i, 5)) {
-      print += "buzz";
-    }
-
-    print = print ? print : i;
-
-    console.log(print);
   }
 }
 
