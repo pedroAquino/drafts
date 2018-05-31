@@ -58,39 +58,50 @@ function solution2(array, chunckSize) {
   return result;
 }
 
+//STEPHEN'S SOLUTION #1
+// Test Suites: 1 passed, 1 total
+// Tests:       5 passed, 5 total
+// Snapshots:   0 total
+// Time:        1.362s
+function solution3(array, chunckSize) {
+  const chunked = [];
+
+  for (let item of array) {
+    const last = chunked[chunked.length-1];
+    if (!last || last.length == chunckSize) {
+      chunked.push([item]);
+    } else {
+      last.push(item);
+    }
+  }
+
+  return chunked;
+}
+
+//STEPHEN'S SOLUTION #2
+// Test Suites: 1 passed, 1 total
+// Tests:       5 passed, 5 total
+// Snapshots:   0 total
+// Time:        1.371s
+function solution4(array, chunckSize) {
+  const chunked = [];
+  let index = 0;
+
+  while (index < array.length) {
+    const jump = index+chunckSize;
+    chunked.push(array.slice(index, jump));
+    index = jump;
+  }
+
+  return chunked;
+}
+
 
 function chunk(array, size) {
   //return solution1(array, size);
-  return solution2(array, size);
+  //return solution2(array, size);
+  //return solution3(array, size);
+  return solution4(array, size);
 }
 
 module.exports = chunk;
-
-
-
-
-  // var arraySize = array.length / chunckSize; //1
-  // var ArrSize =
-  //   array.length % chunckSize == 0 ? arraySize : parseInt(arraySize, 10) + 1;
-  // var result = [ArrSize];
-  // for (let i = 0, len = result.length; i < len; i++) result[i] = [];
-
-  // //   for (let i = 0, len = array.length, cIndex = 0; i < len; i++) {
-  // //     console.info(`cIndex ${cIndex} i ${i} chunckSize ${chunckSize}`);
-
-  // //     result[cIndex].push(array[i + cIndex * chunckSize]);
-
-  // //     cIndex = cIndex == i ? cIndex + 1 : cIndex;
-  // //   }
-  // for (let i = result.length; i >= 0; i--) {
-  //   const lenY = array.length - i;
-  //   for (let y = i * chunckSize; y < lenY; y += 1) {
-  //     result[i].push(array[y]);
-  //     console.info(`value ${array[y]} i ${i} y ${y}`);
-  //   }
-  // }
-
-  // console.log(`ARRAY ${array} ArrSize ${ArrSize} Chuck Size ${chunckSize}`);
-  // console.log("RESULT", result);
-
-  // return result;
