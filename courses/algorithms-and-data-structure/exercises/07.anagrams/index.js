@@ -8,16 +8,6 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function crateObjectMap(word) {
-  const Obj = {};
-
-  for (let char of word) {
-    Obj[char] = Obj[char] ? Obj[char]++ : 1;
-  }
-
-  return Obj;
-}
-
 // SOLUTION #1
 // clean string, create char maps, iterate and compare
 // Test Suites: 1 passed, 1 total
@@ -28,6 +18,16 @@ function solution1(stringA, stringB) {
   const regex = /[^\w]/g;
   const A = stringA.replace(regex, "").toLowerCase();
   const B = stringB.replace(regex, "").toLowerCase();
+
+  const crateObjectMap = word => {
+    const Obj = {};
+
+    for (let char of word) {
+      Obj[char] = Obj[char] ? Obj[char]++ : 1;
+    }
+
+    return Obj;
+  };
 
   const AObj = crateObjectMap(A);
   const BObj = crateObjectMap(B);
@@ -49,7 +49,22 @@ function solution1(stringA, stringB) {
   return result;
 }
 
-function solution2(stringA, stringB) {}
+function cleanStr(str) {
+  return str
+    .replace(/[^\w]/g, "")
+    .toLowerCase()
+    .split("")
+    .sort()
+    .join("");
+}
+
+// Test Suites: 1 passed, 1 total
+// Tests:       6 passed, 6 total
+// Snapshots:   0 total
+// Time:        0.406s, estimated 1s
+function solution2(stringA, stringB) {
+  return cleanStr(stringA) == cleanStr(stringB);
+}
 
 function anagrams(stringA, stringB) {
   //return solution1(stringA, stringB);
