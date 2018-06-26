@@ -18,7 +18,13 @@ function crateObjectMap(word) {
   return Obj;
 }
 
-function anagrams(stringA, stringB) {
+// SOLUTION #1
+// clean string, create char maps, iterate and compare
+// Test Suites: 1 passed, 1 total
+// Tests:       6 passed, 6 total
+// Snapshots:   0 total
+// Time:        0.445s, estimated 1s
+function solution1(stringA, stringB) {
   const regex = /[^\w]/g;
   const A = stringA.replace(regex, "").toLowerCase();
   const B = stringB.replace(regex, "").toLowerCase();
@@ -26,16 +32,28 @@ function anagrams(stringA, stringB) {
   const AObj = crateObjectMap(A);
   const BObj = crateObjectMap(B);
 
-  if (Object.keys(AObj).length != Object.keys(BObj).length) {
-    return false;
+  const AKeys = Object.keys(AObj);
+  const BKeys = Object.keys(BObj);
+  let result = true;
+
+  if (AKeys.length != BKeys.length) {
+    result = false;
   } else {
-    //   let result = true;
-    //   for (let key in AObj) {
-    //       if (key != )
-    //   }
+    for (let key of AKeys) {
+      if (AObj[key] != BObj[key]) {
+        result = false;
+      }
+    }
   }
+
+  return result;
+}
+
+function solution2(stringA, stringB) {}
+
+function anagrams(stringA, stringB) {
+  //return solution1(stringA, stringB);
+  return solution2(stringA, stringB);
 }
 
 module.exports = anagrams;
-
-// /[^\w]/
