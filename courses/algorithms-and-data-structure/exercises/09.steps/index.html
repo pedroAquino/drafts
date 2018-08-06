@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <script>
+        function steps(n) {
+            //debugger;
+            for (let row = 1; row <= n; row++) {
+                let str = "";
+                for (let col = 1; col <= n; col++) {
+                    if (col <= row) {
+                        str += "#";
+                    } else {
+                        str += "-";
+                    }
+                }
+                console.log(str);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+        steps(2);
+    </script>
+</body>
+
+</html>

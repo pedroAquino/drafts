@@ -17,28 +17,17 @@
 //       '### '
 //       '####'
 
-function reverseStr(str) {
-  return str
-    .split("")
-    .reverse()
-    .join("");
-}
-
 function steps(n) {
-  var str = "";
-  for (let i = 1; i <= n; i++) {
-    for (let x = 1; x <= n; x++) {
-      const blankSpaces = n - x;
-      let count = 1;
-      while (count < blankSpaces) {
+  for (let row = 1; row <= n; row++) {
+    let str = "";
+    for (let col = 1; col <= n; col++) {
+      if (col <= row) {
+        str += "#";
+      } else {
         str += " ";
-        count++;
       }
-      console.log(`n=${n} str=${str}`);
-      str += "#";
     }
-    //console.log(reverseStr(str));
-    str = "";
+    console.log(str);
   }
 }
 
