@@ -17,6 +17,13 @@
 //       '### '
 //       '####'
 
+function reverseStr(str) {
+  return str
+    .split("")
+    .reverse()
+    .join("");
+}
+
 function steps(n) {
   var str = "";
   for (let i = 1; i <= n; i++) {
@@ -27,14 +34,10 @@ function steps(n) {
         str += " ";
         count++;
       }
+      console.log(`n=${n} str=${str}`);
       str += "#";
     }
-    console.log(
-      str
-        .split("")
-        .reverse()
-        .join("")
-    );
+    //console.log(reverseStr(str));
     str = "";
   }
 }
