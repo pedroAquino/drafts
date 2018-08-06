@@ -2,8 +2,7 @@
 
 <head>
     <script>
-        function steps(n) {
-            //debugger;
+        function solution1(n) {
             for (let row = 1; row <= n; row++) {
                 let str = "";
                 for (let col = 1; col <= n; col++) {
@@ -16,12 +15,32 @@
                 console.log(str);
             }
         }
+
+        function solution2(n, row = 1, str = '') {
+            if (row > n) {
+                return;
+            }
+
+            if (str.length == n) {
+                console.log(str);
+                row = row + 1;
+                str = '';
+            } else {
+                if (str.length < row) {
+                    str += '#';
+                } else {
+                    str += '_';
+                }
+            }
+
+            solution2(n, row, str);
+        }
     </script>
 </head>
 
 <body>
     <script>
-        steps(2);
+        solution2(2);
     </script>
 </body>
 
