@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <script>
+        function pyramid(n) {
+            let cols = n + (n - 1);
+            let midPoint = Math.floor(cols / 2);
+            for (let row = 0; row < n; row++) {
+                let stair = "";
+                for (let column = 0; column < cols; column++) {
+                    if (midPoint - row <= column && midPoint + row >= column) {
+                        stair += "#";
+                    } else {
+                        stair += " ";
+                    }
+                }
+                console.log(stair);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <script>pyramid(3)</script>
+</body>
+
+</html>
