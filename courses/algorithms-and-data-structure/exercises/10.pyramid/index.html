@@ -2,26 +2,35 @@
 
 <head>
     <script>
-        function pyramid(n) {
-            let cols = n + (n - 1);
-            let midPoint = Math.floor(cols / 2);
-            for (let row = 0; row < n; row++) {
-                let stair = "";
-                for (let column = 0; column < cols; column++) {
-                    if (midPoint - row <= column && midPoint + row >= column) {
-                        stair += "#";
-                    } else {
-                        stair += " ";
-                    }
-                }
-                console.log(stair);
+        function pyramid(n, row = 0, level = '') {
+            //debugger;
+            if (row === n) {
+                return;
             }
+            const colsNumber = 2 * n - 1;
+
+            if (level.length === colsNumber) {
+                console.log(level);
+                return pyramid(n, row + 1);
+            }
+
+            const midpoint = Math.floor(colsNumber / 2);
+
+            let add;
+            if (midpoint - row <= level.length && midpoint + row >= level.length) {
+                add = '#';
+            } else {
+                add = ' ';
+            }
+
+            pyramid(n, row, level + add);
+
         }
     </script>
 </head>
 
 <body>
-    <script>pyramid(3)</script>
+    <script>pyramid(2)</script>
 </body>
 
 </html>

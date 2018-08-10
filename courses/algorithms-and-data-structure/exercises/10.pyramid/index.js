@@ -34,8 +34,38 @@ function solution1(n) {
   }
 }
 
+
+// Test Suites: 1 passed, 1 total
+// Tests:       4 passed, 4 total
+// Snapshots:   0 total
+// Time:        2.231s
+function solution2(n, row = 0, level = '') {
+  if (row === n) {
+      return;
+  }
+  const colsNumber = 2 * n - 1;
+
+  if (level.length === colsNumber) {
+      console.log(level);
+      return solution2(n, row + 1);
+  }
+
+  const midpoint = Math.floor(colsNumber / 2);
+
+  let add;
+  if (midpoint - row <= level.length && midpoint + row >= level.length) {
+      add = '#';
+  } else {
+      add = ' ';
+  }
+
+  solution2(n, row, level + add);
+
+}
+
 function pyramid(n) {
-  solution1(n);
+  //solution1(n);
+  solution2(n);
 }
 
 module.exports = pyramid;
