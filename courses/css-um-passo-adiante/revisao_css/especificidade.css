@@ -1,0 +1,36 @@
+/*
+    Ordem de "força" de especificidade de regras css:
+    
+    Estilos inline
+    IDs
+    Classes, pseudoclasses e atributos
+    Elementos e pseudoelementos    
+*/
+
+/* Ex: */
+/*
+    Quantos estilos inline o seletor abaixo possue? ==> 0
+    Quantos IDs ? ==> 0
+    Quantas classes, pseudoclasses e atributos ? ==> 0
+    Quantos elementos e pseudoelementos ? ==> 1
+
+    Sendo assim temos:
+    0001
+*/
+h1 {} 
+
+/*
+    Repetindo o processo para o seletor abaixo temos:
+    
+    Estilos inline ==> 0
+    IDs ==> 1
+    Classes, pseudoclasses e atributos ==> 0
+    Elementos e pseudoelementos ==> 1
+
+    Sendo assim temos:
+    0101
+
+    Ou seja: 101 > 1
+    O que significa que o seletor abaixo prevalecerá sobre o seletor acima 
+*/
+#content h1 {} /* WINNER ! */
