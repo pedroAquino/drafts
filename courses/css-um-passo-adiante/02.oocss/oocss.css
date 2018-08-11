@@ -71,6 +71,8 @@ footer h3 {
 }
 
 /* Aplicando OOCSS podemos refatorar para: */
+/* Agora temos uma regra "title" genérica que é aplicada ao conteúdo independente do container */
+/* Sendo assim, apenas complementamos a regra genérica com outras mais específicas */
 .title {
     color: #777;
     font-family: Arial, Helvetica, sans-serif;

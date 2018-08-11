@@ -14,13 +14,24 @@
 <!-- ############################################################################################### -->
 
 <!-- Independência entre container e conteúdo -->
-
+<!-- JEITO ERRADO: -->
+<!-- Aqui vemos que nenhuma classe é adicionada, por tanto,
+    o seletor terá que ser feito baseado no parent do titulo -->
 <aside>
     <h3>Título</h3>
 </aside>
-
 <footer>
     <h3>Título</h3>
+</footer>
+
+<!-- Refatorando para utilizar OOCSS adicionamos a classe "title" ao h3
+    Agora sua aparência é indepenedente do seu "parent" -->
+<aside>
+    <h3 class="title">Título</h3>
+</aside>
+
+<footer>
+    <h3 class="title">Título</h3>
 </footer>
 
 <!-- ############################################################################################### -->
