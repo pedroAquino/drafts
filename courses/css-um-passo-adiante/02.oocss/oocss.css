@@ -17,7 +17,7 @@
     width: 100px;
 }
 
-.boxred {
+.boxblue {
     background-color: #00f;
     height: 100px;
     outline: 1px solid #fff;
@@ -44,4 +44,45 @@
 
 .box-blue {
     background-color: #00f;
+}
+
+/* ############################################################################################### */
+
+/* Independência entre container e conteúdo */
+/* Notamos que a regra definida abaixo estiliza um "h3" filho de um "aside" */
+
+aside h3 {
+    color: #777;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    line-height: 1;
+    text-shadow: rgba(0, 0, 0, .3) 3px 3px 6px;
+}
+
+/* Sendo assim, caso tenhamos também um h3 dentro de um footer somos obrigados a copiar a regra,
+   mudando apenas o que é específico: */
+/* ERRADO ! */
+footer h3 {
+    color: #777;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1;
+    font-size: 1.5em;
+    text-shadow: rgba(0, 0, 0, .3) 2px 2px 4px;
+}
+
+/* Aplicando OOCSS podemos refatorar para: */
+.title {
+    color: #777;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1;
+}
+
+aside .title {
+    font-size: 2em;
+    text-shadow: rgba(0, 0, 0, .3) 3px 3px 6px;
+}
+
+footer .title {
+    font-size: 1.5em;
+    text-shadow: rgba(0, 0, 0, .3) 2px 2px 4px;
 }
