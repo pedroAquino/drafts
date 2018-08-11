@@ -1,0 +1,47 @@
+/*  Separação entre estrutura (structure) e visual (skin)  */
+
+
+/* Como podemos ver, as regras abaixo definem tanto estrutura (structure) como visual (skin) */
+/* Notamos também que boa parte do código é repetido em cada regra */
+.boxred {
+    background-color: #f00;
+    height: 100px;
+    outline: 1px solid #fff;
+    width: 100px;
+}
+
+.boxgreen {
+    background-color: #0f0;
+    height: 100px;
+    outline: 1px solid #fff;
+    width: 100px;
+}
+
+.boxred {
+    background-color: #00f;
+    height: 100px;
+    outline: 1px solid #fff;
+    width: 100px;
+}
+
+/* Refatorando para utilizar OOCSS  */
+/* Agora temos uma regra genérica "box" que define o structure */
+.box {
+    height: 100px;
+    outline: 1px solid #fff;
+    width: 100px;
+}
+
+/* E três regras específicas red, green e blue que definem o skin */
+.box-red {
+    background-color: #f00;
+}
+
+
+.box-green {
+    background-color: #0f0;
+}
+
+.box-blue {
+    background-color: #00f;
+}
