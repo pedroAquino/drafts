@@ -1,0 +1,15 @@
+/*
+        O arquivo base.css é utilizado, dentro do SMACSS, como um arquivo que deve conter as regras básicas da aplicação. Dentro
+        dele devem conter apenas seletores de elemento, Ex:
+*/
+
+body {
+    padding: 16px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0c244a;
+}
+
+h1, h2, h3 {
+color: 	#384b6a
+}
