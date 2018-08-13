@@ -1,0 +1,16 @@
+
+#sidebar {
+    float: left;
+    width: 20%;
+    min-height: 95%;
+}
+
+#content {
+    float: right;
+    width: 80%;
+    min-height: 95%;
+}
+
+#footer {
+    clear: both;
+}

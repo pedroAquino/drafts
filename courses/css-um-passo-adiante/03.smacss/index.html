@@ -3,20 +3,36 @@
 <head>
     <!-- SMACSS SAMPLE -->
     <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/layout.css" />
 </head>
 
 <body>
-    <h1>SMACSS SAMPLE</h1>
-    <h2>BASE.css</h2>
-    <p>
-        O arquivo base.css é utilizado, dentro do SMACSS, como um arquivo que deve conter as regras básicas da aplicação. Dentro
-        dele devem conter apenas seletores de elemento, Ex:
-    </p>
-    <h3> body, h1, h2, etc... </h3>
-    <p>
-        com variações como seletor filho ou descendente, Ex:
-    </p>
-    <h3>form > input ou body div</h3>
+    <header id="header">
+        <h1>SMACSS SAMPLE</h1>
+        <h2>BASE.css</h2>
+    </header>
+    <sidebar id="sidebar">
+        <h3>NAV MENU</h3>
+        <ul>
+            <li>BASE.CSS</li>
+        </ul>
+    </sidebar>
+
+    <content id="content">
+        <p>
+            O arquivo base.css é utilizado, dentro do SMACSS, como um arquivo que deve conter as regras básicas da aplicação. Dentro
+            dele devem conter apenas seletores de elemento, Ex:
+        </p>
+        <h3> body, h1, h2, etc... </h3>
+        <p>
+            com variações como seletor filho ou descendente, Ex:
+        </p>
+        <h3>form > input ou body div</h3>
+        <p>Em BASE.css podem ir também CSS resets.</p>
+    </content>
+    <footer id="footer">
+        <p>Copyright &copy; Pedro Aquino</p>
+    </footer>
 </body>
 
 </html>

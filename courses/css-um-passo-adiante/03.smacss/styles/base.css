@@ -8,8 +8,17 @@ body {
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
     color: #0c244a;
+    font-size: 16px;
 }
 
 h1, h2, h3 {
 color: 	#384b6a
+}
+
+ul {
+    list-style: none;
+}
+
+footer {
+    font-size: 12px
 }
