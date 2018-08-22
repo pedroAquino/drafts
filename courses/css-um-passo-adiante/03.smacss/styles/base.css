@@ -1,6 +1,6 @@
 /*
-        O arquivo base.css é utilizado, dentro do SMACSS, como um arquivo que deve conter as regras básicas da aplicação. Dentro
-        dele devem conter apenas seletores de elemento, Ex:
+    O arquivo base.css no SMACSS deve conter regras básicas da aplicação,
+    normalmente "css resets". Deve utilizar apenas seletores de elemento html.
 */
 
 body {

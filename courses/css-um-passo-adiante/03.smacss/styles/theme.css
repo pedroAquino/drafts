@@ -1,0 +1,17 @@
+/*
+    NO SMACSS, o arquivo theme é usado para definir o "tema", ele pode
+    modificar regras de qualquer um dos arquivos carregados anteriormente,
+    deve utilizar um seletor descendente partindo de uma classe "base" do tema que
+    deve ser adicionada ao "body" para que o tema seja aplicado.
+*/
+
+/* Classe que deve ser adicionada ao body */
+.theme-christmass {
+    background: red;
+}
+
+/* Todos os outros seletores descendem desse */
+
+.theme-christmass h1 {
+    color: white;
+}

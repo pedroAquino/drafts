@@ -1,0 +1,15 @@
+/*
+    No SMACSS o arquivo state recebe regras que definem o estado de um elemento,
+    todos os seletores deste arquivo devem ser prefixados com ".is-"
+    geralmente estas regras são adicionadas e removidas dinamicamente via javascript
+
+    EX:
+*/
+
+.is-hidden {
+    visibility: hidden;
+}
+
+.accordion-menu.is-oppened {
+    display: block;
+}
