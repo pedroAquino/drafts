@@ -1,0 +1,63 @@
+.popup-modal-left{
+flex: 1;
+/* padding: 20px; */
+}
+
+.popup-modal-right {
+position: absolute;
+margin-left: 440px;
+/* margin-top: -20px; */
+}
+.popup-modal-right-medium {
+position: absolute;
+margin-left: 730px;
+}
+
+.close-modal{
+    cursor: pointer;
+}
+
+.medium-width, .small-width{
+margin-top: 10%;
+}
+
+@media (min-width: 534px) and (max-width: 720px) {
+.popup-modal-right {    
+    margin-left: 0;    
+    right: 0;
+}
+
+.modal-dialog{
+    /* left:13%; */
+}
+}
+
+@media (min-width: 321px) and (max-width: 533px) {
+.modal-dialog{
+    /* left: 0%; */
+    
+}
+
+.popup-modal-right{
+    margin: 0;
+    
+}
+
+.modal-content{
+    padding: 0!important;
+    width:97%!important;
+}
+
+}
+
+
+@media (min-width: 220px) and (max-width:320px){
+.popup-modal-container{
+    max-width: 100%!important;
+    width:100%;
+}
+
+.modal-content{
+    width:99%!important;
+    padding:0!important;
+}
