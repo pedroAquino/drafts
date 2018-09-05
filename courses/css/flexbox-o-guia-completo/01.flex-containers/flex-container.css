@@ -1,3 +1,38 @@
+/*
+FLEX DIRECTION
+
+valores possíveis:
+
+row
+    dispõe os elementos lado a lado no main axis.
+    Ele respeita a order de es escrita da página
+
+    se adicionarmos:
+
+    html  {
+        direction: rtl; => right to left
+    }
+
+    as colunas se alinharão da direita para esquerda.
+
+row-reverse
+    dispõe os elementos da mesma forma que "row", porem,
+    alinha da direita para esquerda sem a necessidade de alterar
+    o direction do documento inteiro.
+
+column
+    inverte o main axis com o cross axis. Na prática significa que
+    o fluxo principal pelo qual o conteúdo vai se alinhar dentro do
+    container flex vai ser na vertical ao invés da horizontal, sempre de
+    cima para baixo.
+
+column-reverse
+    Funciona como o column, porém o fluxo vai de baixo pra cima ao invés
+    de cima para baixo.
+
+*/ 
+
 .container {
     display: flex;
+    flex-direction: column;
 }
