@@ -1,0 +1,29 @@
+/*
+
+FLEX WRAP
+
+Utilizado para definir como o conteúdo deve se alinhar no flex container
+quando o container tiver uma largura ou altura fixas, o que inicialmente
+causará um overflow, ou seja, os flex-itens vão ultrapassar o espaço de 
+seu flex-container.
+
+valores possíveis:
+
+WRAP
+    faz com que os itens quebrem a linha, ou a coluna quando atingirem o
+    limite do seu flex-container
+
+WRAP-REVERSE
+    faz com que os itens quebrem a linha porém os alinha na direção oposta
+    à direção definida pelo flex-direction
+
+*/
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 1px solid #fff;
+    width: 500px;
+    height: 500px;
+}
