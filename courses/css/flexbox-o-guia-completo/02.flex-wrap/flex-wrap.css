@@ -17,12 +17,17 @@ WRAP-REVERSE
     faz com que os itens quebrem a linha porém os alinha na direção oposta
     à direção definida pelo flex-direction
 
+NOWRAP
+    valor default. Permite que os itens façam overflow 
+    ultrapassando o limite de seu container
+
 */
 
 .container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+
     border: 1px solid #fff;
     width: 500px;
     height: 500px;
