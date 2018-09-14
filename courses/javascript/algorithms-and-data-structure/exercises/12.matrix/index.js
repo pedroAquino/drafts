@@ -15,6 +15,12 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 
+
+
+// Test Suites: 1 passed, 1 total
+// Tests:       4 passed, 4 total
+// Snapshots:   0 total
+// Time:        5.59s
 function matrix(n) {
     let results = [];
     for (let i=0; i<n; i++) results.push([]);
