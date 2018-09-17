@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../base.css" />
+        <link rel="stylesheet" href="./align-content.css" />
+    </head>
+    <body>
+        <div>
+            <h3>Align Content</h3>
+            <p>
+                Utilizado para controlar o alinhamento de flex-itens no cross axis,
+                quando o conteúdo tem mais de uma linha
+                <br/>
+                valores possíveis:
+            </p>
+        </div>
+
+        <div>
+            <h3>Normal</h3>
+            <p>
+                Caso não seja definido nenhum valor para a propriedade align-content
+                os itens tentarão se distribuir proporcionalmente ao longo do cross axis
+            </p>
+            <div class="container">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+            </div>
+        </div>
+
+        <div>
+            <h3>Flex Start</h3>
+            <p>
+                O valor flex-start faz com que os itens se alinhem no inicio do cross
+                axis. Eles não vão tentar ocupar todo o cross axis.
+            </p>
+            <div class="container flex-start">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+            </div>
+        </div>
+
+        <div>
+            <h3>Center</h3>
+            <p>
+                O valor center faz com que os items se alinhem no meio do cross axis.
+            </p>
+            <div class="container center">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+            </div>
+        </div>
+
+        <div>
+            <h3>Flex End</h3>
+            <p>
+                O valor flex-end faz com que os items se alinhem ao final de cross axis.
+            </p>
+            <div class="container flex-end">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+            </div>
+        </div>
+
+        <div>
+            <h3>Space Around</h3>
+            <p>
+               O valor space-around faz com que os itens se alinhem proporcionalmente
+               sobre o cross axis deixando um espaço no inicio e no fim
+            </p>
+            <div class="container space-around">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+            </div>
+        </div>
+
+        <div>
+            <h3>Space Between</h3>
+            <p>
+                O valor space-between faz com que os itens se alinhem proporcionalmente
+                sobre o cross axis sem deixar nenhum espaço no inicio e no fim
+            </p>
+            <div class="container space-between">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+            </div>
+        </div>
+    </body>
+</html>
