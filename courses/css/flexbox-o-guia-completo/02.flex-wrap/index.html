@@ -4,27 +4,74 @@
         <link rel="stylesheet" href="./flex-wrap.css" />
     </head>
     <body>
-        <div class="container">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-            <div>7</div>
-            <div>8</div>
-            <div>9</div>
-            <div>10</div>
-            <div>11</div>
-            <div>12</div>
-            <div>13</div>
-            <div>14</div>
-            <div>15</div>
-            <div>16</div>
-            <div>17</div>
-            <div>18</div>
-            <div>19</div>
-            <div>20</div>
+        <div>
+            <h3>Flex Wrap</h3>
+            <p>
+                Utilizado para definir como o conteúdo deve se alinhar no flex container
+                quando o container tiver uma largura ou altura fixas, o que inicialmente
+                causará um overflow, ou seja, os flex-itens vão ultrapassar o espaço de 
+                seu flex-container.
+                <br/>
+                Valores possíveis:
+            </p>
+        </div>
+        <div>
+            <h3>Wrap</h3>
+            <p>
+                faz com que os itens quebrem a linha, ou a coluna quando atingirem o
+                limite do seu flex-container
+            </p>
+            <div class="container wrap">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+            </div>
+        </div>
+        <div>
+            <h3>Wrap Reverse</h3>
+            <p>
+                faz com que os itens quebrem a linha porém os alinha na direção oposta
+                à direção definida pelo flex-direction
+            </p>
+            <div class="container wrap-reverse">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+            </div>
+        </div>
+
+        <div>
+            <h3>No Wrap</h3>
+            <p>
+                valor default. Permite que os itens façam overflow 
+                ultrapassando o limite de seu container
+            </p>
+            <div class="container nowrap">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+            </div>
         </div>
     </body>
 </html>
