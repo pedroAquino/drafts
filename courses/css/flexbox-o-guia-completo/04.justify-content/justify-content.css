@@ -1,0 +1,33 @@
+/*
+    JUSTIFY-CONTENT
+
+    Utilizado para controlar o alinhamento de flex-itens no main axis.
+
+    valores possíveis
+
+    flex-start
+    Este é o valor padrão e faz com que os itens se alinhem no inicio do main axis
+
+    flex-end
+    Faz com que os itens se alinhem ao final do main axis.
+
+    center
+    Faz com que os itens se alinhem no meio do main axis.
+
+*/
+
+.flex-start {
+    justify-content: flex-start;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+}
