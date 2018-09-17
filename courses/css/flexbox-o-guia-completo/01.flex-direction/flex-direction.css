@@ -5,7 +5,7 @@ valores possíveis:
 
 row
     dispõe os elementos lado a lado no main axis.
-    Ele respeita a order de es escrita da página
+    Ele respeita a ordem de escrita da página
 
     se adicionarmos:
 
@@ -32,7 +32,22 @@ column-reverse
 
 */ 
 
+.flex-direction-row {
+    flex-direction: row;
+}
+
+.flex-direction-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.flex-direction-column {
+    flex-direction: column;
+}
+
+.flex-direction-column-reverse {
+    flex-direction: column-reverse;
+}
+
 .container {
     display: flex;
-    flex-direction: column;
 }

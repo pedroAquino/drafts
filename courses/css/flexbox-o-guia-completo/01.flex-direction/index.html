@@ -4,11 +4,68 @@
         <link rel="stylesheet" href="./flex-container.css" />
     </head>
     <body>
-        <div class="container">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
+        <div>
+            <h3>Flex-Direction: Row </h3>
+            <p>
+                dispõe os elementos lado a lado no main axis.
+                Ele respeita a ordem de escrita da página
+            
+                se adicionarmos:
+            
+                html  {
+                    direction: rtl; => right to left
+                }
+            
+                as colunas se alinharão da direita para esquerda.
+            </p>
+            <div class="container flex-direction-row">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+            </div>
+        </div>
+        <div>
+            <h3>Flex-Direction: Row Reverse </h3>
+            <p>
+                dispõe os elementos da mesma forma que "row", porem,
+                alinha da direita para esquerda sem a necessidade de alterar
+                o direction do documento inteiro.
+            </p>
+            <div class="container flex-direction-row-reverse">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+            </div>
+        </div>
+        <div>
+            <h3>Flex-Direction: Column </h3>
+            <p>
+                inverte o main axis com o cross axis. Na prática significa que
+                o fluxo principal pelo qual o conteúdo vai se alinhar dentro do
+                container flex vai ser na vertical ao invés da horizontal, sempre de
+                cima para baixo.
+            </p>
+            <div class="container flex-direction-column">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+            </div>
+        </div>
+        <div>
+            <h3>Flex-Direction: Column Reverse </h3>
+            <p>
+                Funciona como o column, porém o fluxo vai de baixo pra cima ao invés
+                de cima para baixo.
+            </p>
+            <div class="container flex-direction-column-reverse">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+            </div>
         </div>
     </body>
 </html>
