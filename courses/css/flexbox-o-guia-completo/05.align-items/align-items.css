@@ -1,0 +1,55 @@
+/*
+    Align Items
+
+    Utilizado para controlar o alinhamento de flex-itens no cross axis.
+    valores possíveis:
+
+    Stretch
+    Este é o valor padrão. Estica os itens ao longo de todo o cross axis.
+
+    Flex Start
+    Alinha os itens no início do cross-axis
+
+    Center
+    Alinha os itens no meio do cross axis.
+
+    Flex End
+    Alinha os itens no final do cross axis.
+
+    Base Line
+    Alinha os itens a partir da sua baseline, sem se importar com o seu tamanho
+*/
+
+.strech {
+    align-items: stretch;
+}
+
+.flex-start {
+    align-items: flex-start;
+}
+
+.center {
+    align-items: center;
+}
+
+.flex-end {
+    align-items: flex-end;
+}
+
+.baseline {
+    align-items: baseline;
+}
+
+.container  {
+    display: flex;
+    border: 2px solid #fff;
+    height: 300px;
+}
+
+.font-medium {
+    font-size: 3rem;
+}
+
+.font-big {
+    font-size: 6rem;
+}
