@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../../base.css" />
+        <link rel="stylesheet" href="./order.css" />
+    </head>
+    <body>
+        <div>
+            <h3>Order</h3>
+            <p>
+               Redefine a ordem de exibição de um item independente
+               da ordem em que está escrito no html.
+            </p>
+            <p>
+                Os valores possíveis são qualquer numero negativo ou positivo
+                Os itens com order de menor valor aparecem primeiro que os de
+                order de menor valor. Por exemplo
+            </p>
+        </div>
+        <div>
+            <h3>Sem alterar o order:</h3>
+            <div class="container">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+            </div>
+        </div>
+        <div>
+            <h3>Alterando o Order:</h3>
+            <p>
+                Vamos alterar o Order do item "1" adicionando o valor "1",
+                desta forma como todos os items tem valor padrão "0", este
+                item aparece por último, embora esteja primeiro no html
+            </p>
+            <div class="container">
+                <div class="order-last">1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+            </div>
+        </div>
+    </body>
+</html>
