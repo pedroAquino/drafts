@@ -1,0 +1,27 @@
+.stretch {
+    align-self: stretch;
+}
+
+.flex-start {
+    align-self: flex-start;
+}
+
+.center {
+    align-self: center;
+}
+
+.flex-end {
+    align-self: flex-end;
+}
+
+.baseline {
+    align-self: baseline;
+}
+
+.container  {
+    align-items: flex-start;
+    display: flex;
+    border: 2px solid #fff;
+    height: 350px;
+    width: 700px;
+}
