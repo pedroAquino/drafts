@@ -1,9 +1,8 @@
+/* flex-flow encapsula as propriedades flex-direction e flex-wrap em uma só */
+
 .container {
     display: flex;
-    /* flex-direction: row;
-    flex-wrap: wrap; */
-    flex-flow: row wrap; /* flex-flow encapsula as propriedades flex-direction e flex-wrap em uma só */
-
+    flex-flow: row wrap;
     border: 1px solid #fff;
     width: 500px;
     height: 500px;
