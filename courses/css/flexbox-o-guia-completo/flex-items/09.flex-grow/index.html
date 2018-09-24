@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../../base.css" />
+        <link rel="stylesheet" href="./flex-grow.css" />
+    </head>
+    <body>
+        <div>
+            <h3>Flex Grow</h3>
+            <p>
+                Flex Grow distribui proporcionalmente o espaço que sobra dentro de um
+                container entre os items, por exemplo, em um container de 800px de largura,
+                que contem três items e onde cada item recebe 100px de largura como abaixo, sobram
+                400px
+            </p>
+            <div class="container">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+            </div>
+            <br/><br/>
+            <p>
+                Caso adicionemos flex-grow:1; para todos os items, eles se estenderão
+                durante todo o espaço que falta no container. Flex-grow calcula a proporção da
+                seguinte maneira:
+                <br/>
+                Cada item recebeu flex-grow:1; temos 4 items, portanto cada item deve receber o resultado de 400px/4 (espaço em branco dividido pelo numero de partes)
+            </p>
+            <div class="container">
+                <div class="flex-grow-1">1</div>
+                <div class="flex-grow-1">2</div>
+                <div class="flex-grow-1">3</div>
+                <div class="flex-grow-1">4</div>
+            </div>
+            <br/><br/>
+            <p>
+                Caso adicionemos flex-grow:2 para o primeiro item, e 1 para todos os demais,
+                ele dividirá o espaço faltante por <b>5</b> (2 para o primeiro mais um para cada um dos demais)
+                e atribuirá duas partes dessa divisão ao item com flex-grow:2 e uma parte aos demais items
+            </p>
+            <div class="container">
+                <div class="flex-grow-2">1</div>
+                <div class="flex-grow-1">2</div>
+                <div class="flex-grow-1">3</div>
+                <div class="flex-grow-1">4</div>
+            </div>
+        </div>
+    </body>
+</html>
