@@ -3,6 +3,25 @@
     </head>
     <body>
         <script>
+
+            class Queue2 {
+                constructor() {
+                    this.data = [];
+                }
+
+                add(record) {
+                    this.data.unshift(record);
+                }
+
+                remove() {
+                    return this.data.pop();
+                }
+
+                peek() {
+                    return this.data[this.data.length-1];
+                }
+            }
+
             class Stack {
                 constructor() {
                     this.data = [];
@@ -29,18 +48,26 @@
                 }
 
                 add (record) {
-                    this.stack1.push(record);
+                    if (!this.stack2.peek()) {
+                        this.stack1.push(record);
+                    } else {
+                        this.stack2.push(record);
+                    }
                 }
 
                 remove() {
-                    
+                    if (!this.stack2.peek()) {
+                        while (this.stack1.peek()) {
+                            this.stack2.push(this.stack1.pop());
+                        }
+                    }
+                    return this.stack2.pop();
                 }
 
                 peek() {
                     while (this.stack1.peek()) {
                         this.stack2.push(this.stack1.pop());
                     }
-                    this.stack1 = this.stack2;
                     return this.stack1.peek();
                 }
             }
@@ -49,6 +76,11 @@
             q.add('banana');
             q.add('maçã');
             q.add('pera');
+
+            let q2 = new Queue2();
+            q2.add('banana');
+            q2.add('maçã');
+            q2.add('pera');
         </script>
     </body>
 </html>
