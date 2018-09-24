@@ -1,0 +1,54 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            class Stack {
+                constructor() {
+                    this.data = [];
+                }
+
+                push(record) {
+                    this.data.push(record);
+                }
+
+                pop() {
+                    return this.data.pop();
+                }
+
+                peek() {
+                    return this.data[this.data.length - 1];
+                }
+            }
+
+
+            class Queue {
+                constructor() {
+                    this.stack1 = new Stack();
+                    this.stack2 = new Stack();
+                }
+
+                add (record) {
+                    this.stack1.push(record);
+                }
+
+                remove() {
+                    
+                }
+
+                peek() {
+                    while (this.stack1.peek()) {
+                        this.stack2.push(this.stack1.pop());
+                    }
+                    this.stack1 = this.stack2;
+                    return this.stack1.peek();
+                }
+            }
+
+            let q = new Queue();
+            q.add('banana');
+            q.add('maçã');
+            q.add('pera');
+        </script>
+    </body>
+</html>
