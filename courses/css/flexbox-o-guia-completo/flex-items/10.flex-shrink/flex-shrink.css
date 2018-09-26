@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    border: 2px solid #fff;
+    width: 400px;
+}
+
+.container div {
+    margin: 0;
+    padding: 0;
+    width: 150px;
+}
+
+.flex-shrink-1 {
+    flex-shrink: 1;
+}
+
+.flex-shrink-2 {
+    flex-shrink: 2;
+}
