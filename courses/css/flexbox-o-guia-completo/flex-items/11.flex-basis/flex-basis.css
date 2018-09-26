@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    width: 800px;
+    border: 1px solid #fff;
+}
+
+.container div {
+    padding: 20px 0;
+    margin: 0;
+}
+
+.flex-basis {
+    flex-basis: 200px;
+}
