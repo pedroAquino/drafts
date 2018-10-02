@@ -6,7 +6,27 @@
     <body>
         <div>
             <h3>Flex Basis</h3>
+            <p>
+                Flex Basis define o tamanho inicial dos flex items que o tamanho deles
+                seja alterado por flex-grow ou flex-shrink.
+            </p>
+            <p>
+                Flex Basis é a maneira correta de se definir o tamanho dos items de um
+                container.
+            </p>
+            <p>
+                Ele poderá ser aplicado à largura, caso flex-direction tiver o valor: "row".
+            </p>
             <div class="container">
+                <div class="flex-basis">1</div>
+                <div class="flex-basis">2</div>
+                <div class="flex-basis">3</div>
+                <div class="flex-basis">4</div>
+            </div>
+            <p>
+                Ou à altura, caso flex-direction: column.
+            </p>
+            <div class="container column">
                 <div class="flex-basis">1</div>
                 <div class="flex-basis">2</div>
                 <div class="flex-basis">3</div>
