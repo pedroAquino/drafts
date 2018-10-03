@@ -41,36 +41,33 @@
             }
 
 
-            class Queue {
-                constructor() {
-                    this.stack1 = new Stack();
-                    this.stack2 = new Stack();
-                }
+class Queue {
+    constructor() {
+        this.stack1 = new Stack();
+        this.stack2 = new Stack();
+    }
 
-                add (record) {
-                    if (!this.stack2.peek()) {
-                        this.stack1.push(record);
-                    } else {
-                        this.stack2.push(record);
-                    }
-                }
+    add (record) {
+        this.stack1.push(record);
+    }
 
-                remove() {
-                    if (!this.stack2.peek()) {
-                        while (this.stack1.peek()) {
-                            this.stack2.push(this.stack1.pop());
-                        }
-                    }
-                    return this.stack2.pop();
-                }
+    remove() {
+        let result = null;
+        while(this.stack1.peek()) {
+            result = this.stack1.pop();
+            this.stack2.push(result);
+        }
 
-                peek() {
-                    while (this.stack1.peek()) {
-                        this.stack2.push(this.stack1.pop());
-                    }
-                    return this.stack1.peek();
-                }
-            }
+        while(this.stack2.peek()) {
+            this.stack1.push(this.stack2.pop());
+        }
+
+        return result;
+    }
+
+    peek() {
+    }
+}
 
             let q = new Queue();
             q.add('banana');

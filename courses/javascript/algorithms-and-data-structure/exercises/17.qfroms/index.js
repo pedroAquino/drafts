@@ -22,17 +22,34 @@ class Queue {
 
     add (record) {
         this.stack1.push(record);
-        this.stack2.remove();
-        this.stack2.push(record);
     }
 
     remove() {
-        this.stack2.remove();
-        return this.stack1.remove();
+        while(this.stack1.peek()) {
+            this.stack2.push(this.stack1.pop());
+        }
+
+        const result = this.stack2.pop();
+
+        while(this.stack2.peek()) {
+            this.stack1.push(this.stack2.pop());
+        }
+
+        return result;
     }
 
     peek() {
-        return this.stack2.peek();
+        while(this.stack1.peek()) {
+            this.stack2.push(this.stack1.pop());
+        }
+
+        const result = this.stack2.peek();
+
+        while(this.stack2.peek()) {
+            this.stack1.push(this.stack2.pop());
+        }
+
+        return result;
     }
 }
 
