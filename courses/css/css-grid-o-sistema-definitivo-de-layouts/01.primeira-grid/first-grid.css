@@ -1,0 +1,22 @@
+.grid {
+    /* DIZ AO BROWSER QUE VAMOS TRABALHAR COM GRID LAYOUT */
+    display: grid;
+
+    /* 
+        DEFINE A LARGURA E O NUMERO DE COLUNAS:
+        Especificar a largura de cada coluna separada por um espaço
+        pode-se usar %, px etc...
+    */
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    
+    /* DEFINE O ESPAÇO ENTRE AS COLUNAS */
+    grid-column-gap: 5px;
+
+    /* DEFINE A LARGURA DAS LINHAS DA MESMA MANEIRA QUE AS COLUNAS */
+    grid-template-rows: 33.33% 33.33% 33.33%;
+
+    /* DEFINE O ESPAÇO ENTRRE AS LINHAS */
+    grid-row-gap: 5px;
+    
+    height: 80%;
+}

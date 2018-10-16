@@ -1,0 +1,21 @@
+        CSS GRID TERMINOLOGIA
+
+        Supondo o seguinte GRID:
+        -------------------------------------   -----
+        |           |           |           |       |    G
+        | GRID ITEM | GRID ITEM | GRID ITEM |       |    R
+        |           |           |           |       |    I
+        ------------------------------------- ---   |    D
+        |           |           |           |   | T |
+        | GRID ITEM | GRID ITEM | GRID ITEM |   | R |    C
+        |           |           |           |   | A |    O
+        ------------------------------------- --- C |    N
+        |           |           |           |     K |    T
+        | GRID ITEM | GRID ITEM | GRID ITEM |       |    A
+        |           |           |           |       |    I
+        -------------------------------------   -----    N
+        L           L           L           L            E
+        I           I           I           I            R
+        N           N           N           N
+        E           E           E           E
+        1           2           3           4
