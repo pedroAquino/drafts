@@ -20,3 +20,24 @@
     
     height: 80%;
 }
+
+.grid2 {
+    display: grid;
+    
+    /* COM A FUNÇÃO repeat() podemos repetir um valor x vezes: repeat(vezes, valor); */
+    grid-template-columns: repeat(2, 400px);
+    grid-template-rows: repeat(2, 200px);
+
+    /* COM PROPRIEDADE grid-gap PODEMOS DEFINIR UM UNICO VALOR DE "gap" PARA LINHAS E COLUNAS */
+    grid-gap: 10px;
+}
+
+.grid3 {
+    display: grid;
+
+    /* A UNIDADE fr permite definir um numero de "frações" da tela */
+    grid-template-columns: 1fr 2fr;
+    
+    grid-template-rows: repeat(2, 400px);
+    grid-gap: 5px;
+}

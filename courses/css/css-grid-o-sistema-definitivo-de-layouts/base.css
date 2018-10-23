@@ -13,14 +13,14 @@ hr {
     color: #375E59;
 }
 
-.grid > div {
+.striped > div {
     padding: 12px;
     background: #B46384;
     font-weight: bold;
     color: #fff;
 }
 
-.grid > div:nth-child(even) {
+.striped > div:nth-child(even) {
     background: #B46384;
     opacity: 0.7;
 }
