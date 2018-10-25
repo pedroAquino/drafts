@@ -102,6 +102,46 @@ class LinkedList {
 
         return null;
     }
+
+    removeAt(index) {
+        if (!this.head) {
+            return;
+        }
+        
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+
+        const previous = this.getAt(index-1);
+
+        if (!previous || !previous.next) {
+            return;
+        }
+
+        previous.next = previous.next.next;
+    }
+
+    insertAt(data, index) {
+        if (!this.head) {
+            this.head = new Node(data);
+            return;
+        }
+
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+
+        const previous = this.getAt(index -1);
+        if (!previous) {
+            this.insertLast(data);
+            return;
+        }
+
+        const node = new Node(data, previous.next);
+        previous.next = node;
+    }
 }
 
 module.exports = { Node, LinkedList };
