@@ -15,11 +15,11 @@ class LinkedList {
     }
 
     insertFirst(data) {
-        this.head = new Node(data, this.head);
+        this.insertAt(data, 0);
     }
 
     getFirst() {
-        return this.head;
+        return this.getAt(0);
     }
 
     removeFirst() {
@@ -31,15 +31,7 @@ class LinkedList {
     }
 
     getLast() {
-        let node = this.head;
-        let result = null;
-        while(node) {
-            if (!node.next) {
-                result = node;
-            }
-            node = node.next;
-        }
-        return result; 
+        return this.getAt(this.size()-1);
     }
 
     removeLast() {
