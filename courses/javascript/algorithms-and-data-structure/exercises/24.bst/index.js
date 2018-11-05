@@ -37,6 +37,10 @@ class Node {
         }
 
     }
+
+    contains(data) {
+        
+    }
 }
 
 module.exports = Node;
