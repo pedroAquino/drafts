@@ -1,0 +1,62 @@
+<ion-content>
+  <div class="main">
+    <div class="bg-dark"></div>
+    <logo-mpc class="logo-mpc-box"></logo-mpc>
+    <logo-eea class="logo-eea-box"></logo-eea>
+    
+    <ion-card class="login-box">
+      <ion-card-header>
+        <h1 class="text--title">Login</h1>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="credentialsForm">
+          <ion-item>
+            <ion-label floating>email</ion-label>
+            <ion-input
+              [formControl]="credentialsForm.controls['email']"
+              type="email"
+              name="email">
+            </ion-input>
+          </ion-item>
+          <div padding *ngIf="credentialsForm.controls['email'].errors &&
+                          credentialsForm.controls['email'].touched ||
+                          (credentialsForm.controls['email'].errors && submited)" 
+                      class="text validator-error">
+            por favor, digite um email válido.
+          </div>
+          <ion-item>
+              <ion-label floating>senha</ion-label>
+              <ion-input
+                [formControl]="credentialsForm.controls['password']"
+                type="password"
+                name="password">
+              </ion-input>
+          </ion-item>
+          <div padding *ngIf="credentialsForm.controls['password'].errors &&
+                      credentialsForm.controls['password'].touched ||
+                      (credentialsForm.controls['password'].errors && submited)"
+                    class="text validator-error">
+              a senha deve conter, no mínimo, 8 caracteres, incluindo letras e números.
+          </div>
+          <div padding-top>
+            <button
+              ion-button
+              color="dark"
+              (click)="onSignIn()" 
+              block>
+              Entrar
+            </button>
+          </div>
+        </form>
+        <div padding-top class="info-box">
+            <p class="text">
+              Faça login ou <a href="#" class="text--link">Cadastre-se</a>
+              <br/>
+              <a href="#" class="text--link">Esqueceu sua senha?</a>
+            </p>
+        </div>
+        </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
