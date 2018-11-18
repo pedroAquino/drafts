@@ -36,4 +36,101 @@ the function should return 3. The king can divide his land in three different wa
 |   G   |       |       |       |       |
 -----------------------------------------
 
+
+
+[
+  [ 'G', '#', '#', '#', 'G' ],
+  [ '#', '#', '#', '#', '#' ],
+  [ '#', 'G', '#', '#', '#' ],
+  [ '#', '#', '#', '#', '#' ],
+  [ 'G', '#', '#', '#', '#' ] 
+]
+
+
+
+
 */
+
+// you can write to stdout for debugging purposes, e.g.
+// console.log('this is a debug message');
+
+function buildGrid(rows, cols, nextFn) {
+    let grid = [];
+    
+    for (let i=0; i<rows; i++) {
+        let row = [];
+        
+        for (let j=0; j<cols; j++) {
+            row.push('#');    
+        }
+        
+        grid.push(row);
+    }
+    
+    return (XCoors, YCoors) =>  nextFn(grid, XCoors, YCoors);
+}
+
+
+function addGolds(grid, XCoors, YCoors) {
+    
+    for (let i=0; i<XCoors.length; i++) {
+        const x = XCoors[i];
+        const y = YCoors[i];
+        
+        grid[x][y] = 'G';
+    }
+    
+    return grid;
+}
+
+function findHorizontalDivisions(grid, goldsLength) {
+  let goldsLimit = goldsLength / 2;
+  let divisions = 0;
+  
+  for (let cols=0; cols<grid.length; cols++) {
+      let golds = 0;
+      for (let rows=0; rows<grid[cols].length; rows++) {
+          
+          if (grid[cols][rows] === 'G') {
+            golds++;    
+          }
+      }
+      
+      if (golds >= goldsLimit) {
+          divisions++;
+      }
+  }
+  
+  return  divisions;
+}
+
+function findVerticalDivisions(grid, goldsLength) {
+  let goldsLimit = goldsLength / 2;
+  let divisions = 0;
+  
+  for (let cols=0; cols<grid.length; cols++) {
+      let golds = 0;
+      for (let rows=0; rows<grid[cols].length; rows++) {
+          
+          if (grid[cols][rows] === 'G') {
+            golds++;    
+          }
+      }
+      
+      if (golds >= goldsLimit) {
+          divisions++;
+      }
+  }
+  
+  return  divisions;
+}
+
+
+function solution(N, M, X, Y) {
+    // write your code in JavaScript (Node.js 8.9.4)
+    const grid = buildGrid(N, M, addGolds)(X, Y);
+    const horizontalDivisions = findHorizontalDivisions(grid, X.length);
+    
+    
+    
+}
