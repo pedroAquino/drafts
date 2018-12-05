@@ -51,10 +51,35 @@ the function should return 3. The king can divide his land in three different wa
 
 */
 
+
+
+// function findVerticalDivisions(grid, goldsLength) {
+//     let goldsLimit = goldsLength / 2;
+//     let divisions = 0;
+    
+//     for (let cols=0; cols<grid.length; cols++) {
+//         let golds = 0;
+//         for (let rows=0; rows<grid[cols].length; rows++) {
+            
+//             if (grid[cols][rows] === 'G') {
+//               golds++;    
+//             }
+//         }
+        
+//         if (golds >= goldsLimit) {
+//             divisions++;
+//         }
+//     }
+    
+//     return  divisions;
+//   }
+
+
+
 // you can write to stdout for debugging purposes, e.g.
 // console.log('this is a debug message');
 
-function buildGrid(rows, cols, nextFn) {
+function buildGrid(rows, cols) {
     let grid = [];
     
     for (let i=0; i<rows; i++) {
@@ -66,8 +91,8 @@ function buildGrid(rows, cols, nextFn) {
         
         grid.push(row);
     }
-    
-    return (XCoors, YCoors) =>  nextFn(grid, XCoors, YCoors);
+
+    return grid;
 }
 
 
@@ -84,41 +109,20 @@ function addGolds(grid, XCoors, YCoors) {
 }
 
 function findHorizontalDivisions(grid, goldsLength) {
-  let goldsLimit = goldsLength / 2;
+  let goldsLimit = Math.ceil(goldsLength / 2);
   let divisions = 0;
-  
-  for (let cols=0; cols<grid.length; cols++) {
-      let golds = 0;
-      for (let rows=0; rows<grid[cols].length; rows++) {
-          
-          if (grid[cols][rows] === 'G') {
-            golds++;    
-          }
-      }
-      
-      if (golds >= goldsLimit) {
-          divisions++;
-      }
-  }
-  
-  return  divisions;
-}
+  let golds = 0;
 
-function findVerticalDivisions(grid, goldsLength) {
-  let goldsLimit = goldsLength / 2;
-  let divisions = 0;
-  
   for (let cols=0; cols<grid.length; cols++) {
-      let golds = 0;
       for (let rows=0; rows<grid[cols].length; rows++) {
           
           if (grid[cols][rows] === 'G') {
-            golds++;    
+            golds++;
+            if (golds >= goldsLimit) {
+                golds = 0;
+                divisions++;
+            }
           }
-      }
-      
-      if (golds >= goldsLimit) {
-          divisions++;
       }
   }
   
@@ -128,9 +132,19 @@ function findVerticalDivisions(grid, goldsLength) {
 
 function solution(N, M, X, Y) {
     // write your code in JavaScript (Node.js 8.9.4)
-    const grid = buildGrid(N, M, addGolds)(X, Y);
+    const grid = buildGrid(N, M);
+    const gridWithGolds = addGolds(grid, X, Y);
+    
+    console.log(gridWithGolds);
+
     const horizontalDivisions = findHorizontalDivisions(grid, X.length);
-    
-    
-    
+    console.log('horizontalDivisions', horizontalDivisions);
+
 }
+
+const N = 5;
+const M = 5; 
+const X = [0, 4, 2, 0];
+const Y = [0, 0, 1, 4];
+
+solution(N, M, X, Y);
