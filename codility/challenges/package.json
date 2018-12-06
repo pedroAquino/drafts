@@ -1,0 +1,11 @@
+{
+  "name": "challenges",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest exercises/02.palindrome/test.js --watch"
+  },
+  "author": "",
+  "license": "ISC"
+}
