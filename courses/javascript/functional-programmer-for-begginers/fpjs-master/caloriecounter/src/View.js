@@ -1,22 +1,24 @@
 import hh from 'hyperscript-helpers';
 import { h } from 'virtual-dom';
 import initModel from './Model';
-import { showFormMsg } from './Update';
+import { showFormMsg, updateDesc, updateCal, submitForm } from './Update';
 
 const { pre, div, h1, button, label, input, form } = hh(h);
 
-function fieldSet(labelText, inputValue) {
+function fieldSet(labelText, inputValue, oninput) {
     return label({ className: 'db mb1' }, [
         labelText,
         input({
             className: 'pa2 input-reset ba w-100 mb2',
             type: 'text',
-            value: inputValue
+            value: inputValue,
+            oninput
         })
     ]);
 }
 
-function buttonSet(dispatch) {
+function buttonSet(dispatch, model) {
+    const { description, calories } = model;
     return div([
         button({
             className: 'f3 pv2 ph3 bg-blue white bn mr2 dim',
@@ -35,11 +37,17 @@ function formView(dispatch, model) {
 
     if (showForm) {
         return form({
-            className: 'w-100 mv2'
+            className: 'w-100 mv2',
+            onsubmit: e => {
+                e.preventDefault();
+                dispatch(submitForm())
+            }
         }, [
-            fieldSet('Meal', description),
-            fieldSet('Calories', calories || ''),
-            buttonSet(dispatch)
+            fieldSet('Meal', description, 
+                e => dispatch(updateDesc(e.target.value))),
+            fieldSet('Calories', calories || '', 
+                e => dispatch(updateCal(e.target.value))),
+            buttonSet(dispatch, model)
         ]);
     } else {
         return button(
@@ -58,7 +66,7 @@ function view(dispatch, model) {
         [
             h1({ className: 'f2 pv2 bb' }, 'Calorie Counter'),
             formView(dispatch, model),
-            pre(JSON.stringify(initModel, null, 2))
+            pre(JSON.stringify(model, null, 2))
         ]
     );
 }
