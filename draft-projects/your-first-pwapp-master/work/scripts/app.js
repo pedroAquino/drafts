@@ -197,6 +197,9 @@
   };
 
   // TODO add saveSelectedCities function here
+  app.saveSelectedCities = function() {
+    localStorage.selectedCities  = JSON.stringify(app.selectedCities);
+  };
 
   app.getIconClass = function(weatherCode) {
     // Weather codes: https://developer.yahoo.com/weather/documentation.html#codes
@@ -306,6 +309,22 @@
   //app.updateForecastCard(initialWeatherForecast);
 
   // TODO add startup code here
+  app.selectedCities = localStorage.selectedCities;
+  if (app.selectedCities) {
+    app.selectedCities = JSON.parse(localStorage.selectedCities);
+    app.selectedCities.forEach(function(city) {
+      app.getForecast(city.key, city.label);
+    });
+  } else {
+    app.updateForecastCard(initialWeatherForecast);
+    app.selectedCities  = [
+      {
+        key: initialWeatherForecast.key,
+        label: initialWeatherForecast.label
+      }
+    ]
+    app.saveSelectedCities();
+  }
 
   // TODO add service worker code here
 })();
