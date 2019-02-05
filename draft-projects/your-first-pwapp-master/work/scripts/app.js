@@ -50,9 +50,12 @@
     var selected = select.options[select.selectedIndex];
     var key = selected.value;
     var label = selected.textContent;
-    // TODO init the app.selectedCities array here
+    if (!app.selectedCities) {
+      app.selectedCities = [];
+    }
     app.getForecast(key, label);
-    // TODO push the selected city to the array and save here
+    app.selectedCities.push({ key, label });
+    app.saveSelectedCities();
     app.toggleAddDialog(false);
   });
 
@@ -326,5 +329,10 @@
     app.saveSelectedCities();
   }
 
-  // TODO add service worker code here
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('./service-worker.js')
+      .then(() => console.log('Service Worker Registered'))
+  }
+
 })();
