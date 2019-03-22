@@ -18,22 +18,27 @@
 //       '####'
 
 
-function steps(n) {
-    for(let row = 0; row < n; row++) {
-       let stair = '';
+function steps(n, row=0, stair='') {
+    if (row === n) {
+        return;
+    }
 
-       for (let col = 0; col < n; col++) {
-            if (col <= row)
-                stair+='#';
-            else
-                stair+= ' ';
-       }
+    if (row <= stair.length) {
+        stair+='#';
+    } else {
+        stair+=' ';
+    }
 
+    if (stair.length === n) {
         console.log(stair);
+        steps(
+            n,
+            row+1,
+            stair
+        );
     }
 }
 
- 
 function solution1(n) {
     let counter = 1;
     while (counter <= n) {
