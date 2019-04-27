@@ -15,6 +15,27 @@
 //       '#####'
 
 function pyramid(n) {
+    const cols = n === 1 ? 1 : (n * 2) - 1;
+    let spaces = Math.floor(cols / 2);
+    let pounds = 1;
+
+    for (let row=0; row<n; row++) {
+      let stair = '';
+
+      for (let col=0; col<cols; col++) {
+        
+        if (col < spaces || col > (spaces+pounds)-1) {
+          stair+=' ';
+        } else {
+          stair+= '#';
+        }
+      }
+
+      console.log(stair);
+      spaces--;
+      pounds+=2;
+
+    }
 }
 
 module.exports = pyramid;
