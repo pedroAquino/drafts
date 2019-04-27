@@ -1,21 +1,27 @@
 const hymnFactory = ({
     id = 0,
-    title = '',
-    content = ''
+    indice = '',
+    letra = '',
+    titulo = '',
+    titulo_lowercase = '',
 } = {}) => ({
     id,
-    title,
-    content,
+    indice,
+    letra,
+    titulo,
+    titulo_lowercase,
     setId(id) {
         this.id = id;
+        this.indice = id.toString();
         return this;
     },
     setTitle(title) {
-        this.title = title;
+        this.titulo  = title;
+        this.titulo_lowercase = title.toLowerCase();
         return this;
     },
     addContent(verse) {
-        this.content += verse.trim() === '' ? 
+        this.letra += verse.trim() === '' ? 
             ' <br/><br/> ' : ` <br/> ${verse}`;
         return this;
     }
