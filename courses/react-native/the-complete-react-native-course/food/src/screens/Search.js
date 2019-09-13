@@ -1,20 +1,24 @@
 //import liraries
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import SearchBar from '../components/SearchBar';
+import useRestaurants from '../hooks/useRestaurants';
 
 // create a component
 const Search = () => {
     const [term, setTerm] = useState('');
+    const [fetchRestaurants, restaurants, error] = useRestaurants();
+
     return (
         <View style={styles.container}>
             <SearchBar 
                 term={term} 
                 onTermChange={setTerm} 
-                onSearch={() => console.log('SEARCH')}
+                onSearch={() => fetchRestaurants(term)}
             />
             <Text>Search Screen</Text>
-            <Text>{term}</Text>
+            <Text>Found {restaurants.length} restaurants.</Text>
+            { error ? <Text>{error}</Text> : null }
         </View>
     );
 };
