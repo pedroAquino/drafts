@@ -1,0 +1,72 @@
+http://pet-library.moonhighway.com/
+
+
+mutation CheckIn {
+	checkIn (id:"C-5") {
+    pet { name }
+    checkOutDate
+    checkInDate
+    late
+  }
+}
+
+mutation CheckoutMutation {
+  checkOut (id:"C-5") {
+    customer {
+      name
+    }
+    pet {
+      name
+    }
+    checkOutDate
+  }
+}
+
+query Me {
+  me {
+    username
+    name
+  }
+}
+
+mutation Login {
+  logIn(username: "paquino" password:"pass") {
+  	customer {
+      name
+    }
+    token
+  }
+}
+
+mutation CreateAccountMutation ($input: CreateAccountInput!) {
+  createAccount(input:$input) {
+    username
+    name
+  }
+}
+
+fragment CustomerDetails on Customer {
+  name
+  username
+}
+
+query CustomersQuery {
+  allCustomers {
+    ...CustomerDetails
+    currentPets {
+      name
+    }
+    checkoutHistory {
+      pet { name }
+    }
+  }
+}
+
+query PetsQuery {
+  petById(id:"C-1") {
+    name
+    inCareOf {
+      ...CustomerDetails
+    }
+  }
+}
