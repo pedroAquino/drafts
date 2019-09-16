@@ -15,7 +15,7 @@ const RestaurantsList = ({ title, restaurants }) => {
                 horizontal
                 data={restaurants}
                 keyExtractor={r => r.id}
-                renderItem={({ item }) => <RestaurantItem name={item.name} img={item.image_url} />}
+                renderItem={({ item }) => <RestaurantItem id={item.id} name={item.name} img={item.image_url} />}
             />
         </View>
     );

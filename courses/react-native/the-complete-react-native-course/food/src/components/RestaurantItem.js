@@ -1,13 +1,16 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
 // create a component
-const RestaurantItem = ({ name, img }) => {
+const RestaurantItem = ({ name, img, id, navigation }) => {
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={{ url: img }} />
-            <Text style={styles.name}>{name}</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('RestaurantDetail', { id: id })}>
+                <Image style={styles.image} source={{ url: img }} />
+                <Text style={styles.name}>{name}</Text>
+            </TouchableOpacity>
         </View>
     );
 };
@@ -27,4 +30,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default RestaurantItem;
+export default withNavigation(RestaurantItem);
