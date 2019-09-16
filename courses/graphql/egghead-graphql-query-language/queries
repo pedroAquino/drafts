@@ -1,0 +1,39 @@
+query CusPets {
+  customersWithPets {
+    name
+  }
+  totalPets
+  availablePets
+  checkedOutPets
+}
+
+query AllPets {
+  allPets {
+    __typename
+    id
+    name
+    weight
+    ... on Cat {
+      curious
+    }
+  	... on Dog {
+      good
+    }
+    ... on Stingray {
+      chill
+      fast
+    }
+  }
+}
+
+query FamilyPets {
+  familyPets {
+    __typename
+    ... on Dog {
+    	name 
+    }
+    ... on Cat {
+      name
+    }
+  }
+}
