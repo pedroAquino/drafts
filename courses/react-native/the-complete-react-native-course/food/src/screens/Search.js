@@ -1,6 +1,6 @@
 //import liraries
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import useRestaurants from '../hooks/useRestaurants';
 import RestaurantsList from '../components/RestaurantsList';
@@ -12,20 +12,20 @@ const Search = () => {
     const restaurantsByPrice = (price) => restaurants.filter(r => r.price === price);
 
     return (
-        <View style={styles.container}>
+        <React.Fragment>
             <SearchBar 
                 term={term} 
                 onTermChange={setTerm} 
                 onSearch={() => fetchRestaurants(term)}
             />
-            <Text>Search Screen</Text>
-            <Text>Found {restaurants.length} restaurants.</Text>
             { error ? <Text>{error}</Text> : null }
-            <RestaurantsList restaurants={restaurantsByPrice('$')} title="Cost Effective" />
-            <RestaurantsList restaurants={restaurantsByPrice('$$')} title="Bit Pricier" />
-            <RestaurantsList restaurants={restaurantsByPrice('$$$')} title="Expensive" />
-            <RestaurantsList restaurants={restaurantsByPrice('$$$$')} title="Big Spender"  />
-        </View>
+            <ScrollView>
+                <RestaurantsList restaurants={restaurantsByPrice('$')} title="Cost Effective" />
+                <RestaurantsList restaurants={restaurantsByPrice('$$')} title="Bit Pricier" />
+                <RestaurantsList restaurants={restaurantsByPrice('$$$')} title="Expensive" />
+                <RestaurantsList restaurants={restaurantsByPrice('$$$$')} title="Big Spender"  />
+            </ScrollView>
+        </React.Fragment>
     );
 };
 

@@ -1,9 +1,13 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
+import RestaurantItem from '../components/RestaurantItem';
 
 // create a component
 const RestaurantsList = ({ title, restaurants }) => {
+    if (restaurants.length === 0)
+        return null;
+    
     return (
         <View style={styles.container}>
             <Text style={styles.title} >{title}</Text>
@@ -11,7 +15,7 @@ const RestaurantsList = ({ title, restaurants }) => {
                 horizontal
                 data={restaurants}
                 keyExtractor={r => r.id}
-                renderItem={({ item }) => <Text>{item.name}</Text>}
+                renderItem={({ item }) => <RestaurantItem name={item.name} img={item.image_url} />}
             />
         </View>
     );
@@ -20,7 +24,8 @@ const RestaurantsList = ({ title, restaurants }) => {
 // define your styles
 const styles = StyleSheet.create({
     container: {
-
+        marginLeft: 15,
+        marginTop: 8
     },
     title: {
         fontSize: 18,
