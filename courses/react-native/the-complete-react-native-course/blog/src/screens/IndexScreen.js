@@ -1,12 +1,22 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useContext } from 'react';
+import { View, Text, StyleSheet, Button, FlatList } from 'react-native';
+import BlogContext from '../context/BlogContext';
 
 // create a component
 const IndexScreen = () => {
+    const { blogPosts, addBlogPost } = useContext(BlogContext);
     return (
         <View style={styles.container}>
             <Text>IndexScreen</Text>
+            <Button title="Add Blog Post" onPress={addBlogPost} />
+            <FlatList 
+                data={blogPosts}
+                keyExtractor={post => post.title}
+                renderItem={({ item }) => (
+                    <Text>{item.title}</Text>
+                )}
+            />
         </View>
     );
 };
@@ -14,10 +24,6 @@ const IndexScreen = () => {
 // define your styles
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#2c3e50',
     },
 });
 
