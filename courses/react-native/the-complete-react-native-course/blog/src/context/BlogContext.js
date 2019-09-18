@@ -10,7 +10,8 @@ const reducer = (state, action) => {
                 ...state, 
                 { 
                     id: Math.floor(Math.random() * 9999),
-                    title: `Blog Post #${inc(state.length)}` 
+                    ...action.payload
+                    //title: `Blog Post #${inc(state.length)}` 
                 }
             ]
         case 'DELETE_BLOG_POST':
@@ -20,7 +21,10 @@ const reducer = (state, action) => {
     }
 };
 const actions = {
-    addBlogPost: dispatch => () => dispatch({ type: 'ADD_BLOG_POST' }),
+    addBlogPost: dispatch => (blogPost, callBack) => {
+        dispatch({ type: 'ADD_BLOG_POST', payload: blogPost });
+        callBack();
+    },
     deleteBlogPost: dispatch => id => dispatch({ type: 'DELETE_BLOG_POST', payload: id })
 };
 const initialState = [];
