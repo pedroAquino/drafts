@@ -5,7 +5,7 @@ import { Context as BlogContext } from '../context/BlogContext';
 import { Feather } from '@expo/vector-icons';
 
 // create a component
-const IndexScreen = () => {
+const IndexScreen = ({ navigation }) => {
     const { state, actions } = useContext(BlogContext);
     return (
         <React.Fragment>    
@@ -17,12 +17,14 @@ const IndexScreen = () => {
                 data={state}
                 keyExtractor={post => post.id.toString()}
                 renderItem={({ item }) => (
-                    <View style={styles.row}>
-                        <Text>{item.title}</Text>
-                        <TouchableOpacity onPress={() => actions.deleteBlogPost(item.id)}>
-                            <Feather name="trash" style={styles.icon} />
-                        </TouchableOpacity>
-                    </View>
+                    <TouchableOpacity onPress={() => navigation.navigate('ShowScreen', { id: item.id })} >
+                        <View style={styles.row}>
+                            <Text>{item.title}</Text>
+                            <TouchableOpacity onPress={() => actions.deleteBlogPost(item.id)}>
+                                <Feather name="trash" style={styles.icon} />
+                            </TouchableOpacity>
+                        </View>
+                    </TouchableOpacity>
                 )}
             />
         </React.Fragment>
@@ -32,7 +34,8 @@ const IndexScreen = () => {
 // define your styles
 const styles = StyleSheet.create({
     header: {
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 16
     },
     row: {
         flexDirection: 'row',
