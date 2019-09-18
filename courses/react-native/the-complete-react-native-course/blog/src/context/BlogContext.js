@@ -6,13 +6,22 @@ const inc = x => x + 1;
 const reducer = (state, action) => {
     switch(action.type) {
         case 'ADD_BLOG_POST':
-            return [...state, { title: `Blog Post #${inc(state.length)}` }]
+            return [
+                ...state, 
+                { 
+                    id: Math.floor(Math.random() * 9999),
+                    title: `Blog Post #${inc(state.length)}` 
+                }
+            ]
+        case 'DELETE_BLOG_POST':
+            return state.filter(blogPost => blogPost.id !== action.payload)
         default:
             return state
     }
 };
 const actions = {
-    addBlogPost: dispatch => () => dispatch({ type: 'ADD_BLOG_POST' })
+    addBlogPost: dispatch => () => dispatch({ type: 'ADD_BLOG_POST' }),
+    deleteBlogPost: dispatch => id => dispatch({ type: 'DELETE_BLOG_POST', payload: id })
 };
 const initialState = [];
 
