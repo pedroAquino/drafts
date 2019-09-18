@@ -1,17 +1,17 @@
 //import liraries
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet, Button, FlatList } from 'react-native';
-import BlogContext from '../context/BlogContext';
+import { Context as BlogContext } from '../context/BlogContext';
 
 // create a component
 const IndexScreen = () => {
-    const { blogPosts, addBlogPost } = useContext(BlogContext);
+    const { state, actions } = useContext(BlogContext);
     return (
         <View style={styles.container}>
             <Text>IndexScreen</Text>
-            <Button title="Add Blog Post" onPress={addBlogPost} />
+            <Button title="Add Blog Post" onPress={actions.addBlogPost} />
             <FlatList 
-                data={blogPosts}
+                data={state}
                 keyExtractor={post => post.title}
                 renderItem={({ item }) => (
                     <Text>{item.title}</Text>
