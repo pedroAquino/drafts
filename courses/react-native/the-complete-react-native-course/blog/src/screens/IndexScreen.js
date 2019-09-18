@@ -10,7 +10,7 @@ const IndexScreen = () => {
     return (
         <React.Fragment>    
             <View style={styles.header}>
-                <Text style={styles.title} >IndexScreen</Text>
+                <Text style={styles.title} >Awesome Blogging App</Text>
                 <Button title="Add Blog Post" onPress={actions.addBlogPost} />
             </View>
             <FlatList 
