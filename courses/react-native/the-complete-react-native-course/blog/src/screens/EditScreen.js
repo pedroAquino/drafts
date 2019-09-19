@@ -5,30 +5,34 @@ import { Context as BlogContext } from '../context/BlogContext';
 import BlogForm from '../components/BlogForm';
 
 // create a component
-const AddScreen = ({ navigation }) => {
-    const { actions } = useContext(BlogContext);
-    const onSave =  () => navigation.navigate('IndexScreen');
-
+const EditScreen = ({ navigation }) => {
+    const { state, actions } = useContext(BlogContext);
+    const id = navigation.getParam('id');
+    const blogPost = state.find(blogPost => blogPost.id === id);
+    const onSave =  () => navigation.pop();
     return (
         <View>
             <View style={styles.header}>
-                <Text>AddScreen</Text>
+                <Text style={styles.title}>Edit Screen</Text>
             </View>
             <BlogForm 
-                onSubmit={(title, content) => actions.addBlogPost({ title, content }, onSave)}
+                initialValues={blogPost}
+                onSubmit={(title, content) => actions.editBlogPost({ title, content, id }, onSave)}
             />
         </View>
     );
 };
-
 
 // define your styles
 const styles = StyleSheet.create({
     header: {
         alignItems: 'center',
         marginTop: 16
+    },
+    title: {
+        fontSize: 24
     }
 });
 
 //make this component available to the app
-export default AddScreen;
+export default EditScreen;

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import createContext from './createContext';
 
-const inc = x => x + 1;
-
 const reducer = (state, action) => {
     switch(action.type) {
         case 'ADD_BLOG_POST':
@@ -10,12 +8,13 @@ const reducer = (state, action) => {
                 ...state, 
                 { 
                     id: Math.floor(Math.random() * 9999),
-                    ...action.payload
-                    //title: `Blog Post #${inc(state.length)}` 
+                    ...action.payload 
                 }
             ]
+        case 'EDIT_BLOG_POST':
+            return state.map(blogPost => blogPost.id === action.payload.id ? action.payload : blogPost);
         case 'DELETE_BLOG_POST':
-            return state.filter(blogPost => blogPost.id !== action.payload)
+            return state.filter(blogPost => blogPost.id !== action.payload);
         default:
             return state
     }
@@ -25,9 +24,19 @@ const actions = {
         dispatch({ type: 'ADD_BLOG_POST', payload: blogPost });
         callBack();
     },
+    editBlogPost: dispatch => (blogPost, callBack) => {
+        dispatch({ type: 'EDIT_BLOG_POST', payload: blogPost });
+        callBack();
+    },
     deleteBlogPost: dispatch => id => dispatch({ type: 'DELETE_BLOG_POST', payload: id })
 };
-const initialState = [];
+const initialState = [
+    {
+        id: Math.floor(Math.random() * 9999),
+        title: 'Some Blog Post',
+        content: 'Some Blog Post Content'
+    }
+];
 
 export const { Context, Provider } = createContext({
     reducer,
