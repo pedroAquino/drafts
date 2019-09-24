@@ -1,12 +1,20 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
 // create a component
-const SignupScreen = () => {
+const SignupScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text>SignupScreen</Text>
+            <Button 
+                title="SignUp" 
+                onPress={() => navigation.navigate('SignIn')} 
+            />
+            <Button 
+                title="MainFlow"
+                onPress={() => navigation.navigate('mainFlow')}
+            />
         </View>
     );
 };
@@ -14,10 +22,6 @@ const SignupScreen = () => {
 // define your styles
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#2c3e50',
     },
 });
 

@@ -1,12 +1,16 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
 // create a component
-const TrackListScreen = () => {
+const TrackListScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text>TrackListScreen</Text>
+            <Button 
+                title="TrackDetail"
+                onPress={() => navigation.navigate('TrackDetail')}
+            />
         </View>
     );
 };
@@ -14,10 +18,6 @@ const TrackListScreen = () => {
 // define your styles
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#2c3e50',
     },
 });
 
