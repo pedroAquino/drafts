@@ -1,20 +1,39 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { Button, Text, Input } from 'react-native-elements';
+import Spacer from '../components/Spacer';
 
 // create a component
 const SignupScreen = ({ navigation }) => {
+    const [ email, setEmail ] = useState('');
+    const [ password, setPassword ] = useState('');
     return (
         <View style={styles.container}>
-            <Text>SignupScreen</Text>
-            <Button 
-                title="SignUp" 
-                onPress={() => navigation.navigate('SignIn')} 
-            />
-            <Button 
-                title="MainFlow"
-                onPress={() => navigation.navigate('mainFlow')}
-            />
+            <Spacer>
+                <Text h3>Sign up for Tracker</Text>
+                <Spacer />
+                <Input 
+                    label="email"
+                    autoCorrect={false}
+                    autoCapitalize="none"
+                    value={email}
+                    onChangeText={setEmail}
+                />
+                <Spacer />
+                <Input
+                    secureTextEntry
+                    label="password"
+                    autoCorrect={false}
+                    autoCapitalize="none"
+                    value={password}
+                    onChangeText={setPassword}
+                />
+                <Spacer />
+                <Button 
+                    title="Sign Up"
+                />
+            </Spacer>
         </View>
     );
 };
