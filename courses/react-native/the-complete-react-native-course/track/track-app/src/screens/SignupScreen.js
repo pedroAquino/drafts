@@ -4,6 +4,7 @@ import { View, StyleSheet } from 'react-native';
 import Spacer from '../components/Spacer';
 import { Context as AuthContext } from '../context/AuthContext';
 import AuthForm from '../components/AuthForm';
+import NavLink from '../components/NavLink';
 
 // create a component
 const SignupScreen = ({ navigation }) => {
@@ -17,6 +18,11 @@ const SignupScreen = ({ navigation }) => {
                     errorMessage={state.errorMessage} 
                     onSubmit={actions.signUp}
                     loading={state.loading}
+                />
+                <Spacer />
+                <NavLink 
+                    title="Already have an account ? Sign In"
+                    route="SignIn"
                 />
             </Spacer>
         </View>
