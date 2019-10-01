@@ -16,6 +16,7 @@ const SignupScreen = ({ navigation }) => {
                     buttonTitle="Sign up" 
                     errorMessage={state.errorMessage} 
                     onSubmit={actions.signUp}
+                    loading={state.loading}
                 />
             </Spacer>
         </View>

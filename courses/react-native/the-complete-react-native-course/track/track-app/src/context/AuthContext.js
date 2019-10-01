@@ -5,15 +5,18 @@ import { navigate } from '../navigationRef';
 
 const initialState = {
     token: null,
-    errorMessage: ''
+    errorMessage: '',
+    loading: false
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case 'SIGNUP_LOADING':
+            return { ...state, loading: true }
         case 'SIGNUP_ERROR':
-            return {...state, errorMessage: 'Something went wrong with signup' }
+            return {...state, errorMessage: 'Something went wrong with signup', loading: false }
         case 'SIGNUP_SUCCESS':
-            return {...state, token: action.payload, errorMessage: '' }
+            return {...state, token: action.payload, errorMessage: '', loading: false }
         default:
             return state;
     }
@@ -21,6 +24,7 @@ const reducer = (state = initialState, action) => {
 
 const actions = {
     signUp: dispatch => user => {
+        dispatch({ type: 'SIGNUP_LOADING' })
         trackApi
             .post('/signup', user)
             .then(response => {

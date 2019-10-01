@@ -6,7 +6,7 @@ import { Button, Text, Input } from 'react-native-elements';
 
 
 // create a component
-const AuthForm = ({ title, buttonTitle, errorMessage, onSubmit }) => {
+const AuthForm = ({ title, buttonTitle, errorMessage, onSubmit, loading }) => {
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
@@ -34,6 +34,7 @@ const AuthForm = ({ title, buttonTitle, errorMessage, onSubmit }) => {
             <Button 
                 title={buttonTitle}
                 onPress={() => onSubmit({ email, password })}
+                disabled={loading}
             />
             { errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
         </>
