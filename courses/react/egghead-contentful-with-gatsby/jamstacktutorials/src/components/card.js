@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link } from "gatsby"
 
-export default ({ title, image }) => (
+export default ({ title, image, slug }) => (
     <div>
-        <h3>{title}</h3>
+        <Link to={`/lessons/${slug}`}>
+            <h3>{title}</h3>
+        </Link>
         <img src={image} />
     </div>
 );

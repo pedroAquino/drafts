@@ -16,6 +16,7 @@ const IndexPage = ({ data: { allContentfulLesson } }) => (
           key={node.slug}
           title={node.title}
           image={node.image.file.url}
+          slug={node.slug}
         />
       ))
     }
