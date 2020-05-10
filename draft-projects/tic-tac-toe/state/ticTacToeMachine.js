@@ -1,4 +1,4 @@
-import { Machine } from "xstate";
+const { Machine } = require('xstate');
 
 const Board = () => {
   return [
@@ -10,4 +10,6 @@ const Board = () => {
 
 const initialState = Board();
 
-const ticTacToaMachine =  Machine({});
+const ticTacToeMachine =  Machine({});
+
+module.exports = ticTacToeMachine;
