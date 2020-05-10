@@ -1,3 +1,4 @@
+import { Machine } from "xstate";
 
 const Board = () => {
   return [
@@ -9,4 +10,4 @@ const Board = () => {
 
 const initialState = Board();
 
-const ticTacToaMachine = Machine
+const ticTacToaMachine =  Machine({});
