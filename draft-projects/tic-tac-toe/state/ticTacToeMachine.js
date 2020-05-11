@@ -19,7 +19,6 @@ const updateBoard = (board, player, coords ) => {
   let newBoard = board;
   newBoard[x][y] = playerChar;
   
-  console.log('NEWBOARD', newBoard);
   return newBoard; 
 };
 

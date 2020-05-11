@@ -1,6 +1,12 @@
 const ticTacToeMachine = require('./ticTacToeMachine');
 const { interpret } = require('xstate');
 
+const serializeMatrix = (matrix) => {
+  return matrix
+    .map(arr => arr.join(''))
+    .join('')
+}
+
 const ticTacToeService = interpret(ticTacToeMachine)
   .onTransition(state => console.log('STATE', state.value))
   .start();
@@ -27,13 +33,13 @@ test('ticTacToaMachine should change the board according the play', () => {
     ['', 'X', ''],
     ['', '', '']
   ];
-  expect(nextState.context.board).toBe(expectedBoard);
+  expect(serializeMatrix(nextState.context.board)).toBe(serializeMatrix(expectedBoard));
 
-  // expectedBoard = [
-  //   ['', '', 'O'],
-  //   ['', 'X', ''],
-  //   ['', '', '']
-  // ];
-  // nextState = ticTacToeService.send('PLAY', { coords: [0,2] });
-  // expect(nextState.context.board).toBe(expectedBoard);
+  expectedBoard = [
+    ['', '', 'O'],
+    ['', 'X', ''],
+    ['', '', '']
+  ];
+  nextState = ticTacToeService.send('PLAY', { coords: [0,2] });
+  expect(serializeMatrix(nextState.context.board)).toBe(serializeMatrix(expectedBoard));
 })
