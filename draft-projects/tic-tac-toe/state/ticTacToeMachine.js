@@ -8,12 +8,23 @@ const Board = () => {
   ];
 };
 
+const getPlayerChar = player => ({
+  PLAYER_1: 'X',
+  PLAYER_2: 'O'
+}[player]);
+
+const togglePlayer = currentPlayer => {
+  return currentPlayer === PLAYER_1 ? PLAYER_2 : PLAYER_1
+};
+
 const board = Board();
+const PLAYER_1 = 'PLAYER_1';
+const PLAYER_2 = 'PLAYER_2';
 
 const updateBoard = (board, player, coords ) => {
   if (!coords) return board;
   
-  const playerChar = player === 'PLAYER_1' ? 'X' : 'O';
+  const playerChar = getPlayerChar(player);
   const [x, y] = coords;
   
   let newBoard = board;
@@ -22,32 +33,61 @@ const updateBoard = (board, player, coords ) => {
   return newBoard; 
 };
 
+const boardHasHorizontalLine = (board, player) => {
+  const playerChar = getPlayerChar(player);
+  const onlyPlayerChars = item => item === playerChar;
+  
+  const line1Completed = board[0].filter(onlyPlayerChars).length === 3;
+  const line2Completed = board[1].filter(onlyPlayerChars).length === 3;
+  const line3Completed = board[2].filter(onlyPlayerChars).length === 3;
+
+  return line1Completed || line2Completed || line3Completed;
+};
+
 const ticTacToeMachine =  Machine({
   id: 'ticTacToeMachine',
-  initial: 'playing',
+  initial: 'idle',
   context: {
     board: board,
-    currentPlayer: 'PLAYER_1'
+    currentPlayer: null,
+    winner: null
   },
   states: {
-    playing: {
+    idle: {
+      entry: ['togglePlayer'],
       on: { 
-        PLAY: { target: 'playing', actions: ['play', 'togglePlayer'] }
+        PLAY: 'playing'
       }
     },
-    done: { type: 'final' }
+    playing: {
+      entry: ['play'],
+      on: {
+        '': [
+          { target: 'done', cond: 'hasWinner' },
+          { target: 'idle' }
+        ]
+      }
+    },
+    done: { 
+      entry: ['setWinner'],
+      type: 'final' 
+    }
   }
 }, {
   actions: {
     togglePlayer: assign({
-      currentPlayer: ctx => ctx.currentPlayer === 'PLAYER_1' ? 'PLAYER_2' : 'PLAYER_1'
+      currentPlayer: ctx => togglePlayer(ctx.currentPlayer)
     }),
     play: assign({
-      board: (ctx, event) => {
-        return updateBoard(ctx.board, ctx.currentPlayer, event.coords)
-      }
+      board: (ctx, event) => updateBoard(ctx.board, ctx.currentPlayer, event.coords)
+    }),
+    setWinner: assign({
+      winner: ctx => ctx.currentPlayer
     })
+  },
+  guards: {
+    hasWinner: ctx => boardHasHorizontalLine(ctx.board, ctx.currentPlayer)
   }
 });
 
-module.exports = ticTacToeMachine;
+module.exports = ticTacToeMachine
