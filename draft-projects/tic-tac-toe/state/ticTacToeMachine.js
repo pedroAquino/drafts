@@ -1,5 +1,17 @@
 const { Machine, assign } = require('xstate');
 
+// helpers.js
+const getCol = (matrix, col) => {
+  let column = [];
+
+  for (let line=0; line<board.length; line++) {
+    column.push(matrix[line][col])
+  }
+
+  return column;
+}
+
+// Board.js
 const Board = () => {
   return [
     ['', '', ''],
@@ -7,6 +19,10 @@ const Board = () => {
     ['', '', '']
   ];
 };
+
+// Players.js
+const PLAYER_1 = 'PLAYER_1';
+const PLAYER_2 = 'PLAYER_2';
 
 const getPlayerChar = player => ({
   PLAYER_1: 'X',
@@ -17,10 +33,7 @@ const togglePlayer = currentPlayer => {
   return currentPlayer === PLAYER_1 ? PLAYER_2 : PLAYER_1
 };
 
-const board = Board();
-const PLAYER_1 = 'PLAYER_1';
-const PLAYER_2 = 'PLAYER_2';
-
+// actions.js
 const updateBoard = (board, player, coords ) => {
   if (!coords) return board;
   
@@ -33,6 +46,7 @@ const updateBoard = (board, player, coords ) => {
   return newBoard; 
 };
 
+// guards.js
 const isValidCoords = (board, coords) => {
   if (!coords) return false
   const [x, y] = coords;
@@ -57,8 +71,24 @@ const boardHasHorizontalLine = (board, player) => {
 };
 
 const boardHasVerticalLine = (board, player) => {
-  
+  const playerChar = getPlayerChar(player);
+  const onlyPlayerChars = item => item === playerChar;
+
+  const result = board
+    .map((line, index) => getCol(board, index))
+    .map(col => col.filter(onlyPlayerChars))
+    .find(col => col.length === 3);
+
+  return !!result;
 };
+
+const hasWinner = (board, player) => {
+  return boardHasHorizontalLine(board, player) ||
+    boardHasVerticalLine(board, player);
+};
+
+// tcTacToeMachine.js
+const board = Board();
 
 const ticTacToeMachine =  Machine({
   id: 'ticTacToeMachine',
@@ -102,7 +132,7 @@ const ticTacToeMachine =  Machine({
     })
   },
   guards: {
-    hasWinner: ctx => boardHasHorizontalLine(ctx.board, ctx.currentPlayer),
+    hasWinner: ctx => hasWinner(ctx.board, ctx.currentPlayer),
     isValidCoords: (ctx, event) => isValidCoords(ctx.board, event.coords)
   }
 });
