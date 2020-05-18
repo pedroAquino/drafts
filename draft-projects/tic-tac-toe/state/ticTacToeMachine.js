@@ -33,6 +33,18 @@ const updateBoard = (board, player, coords ) => {
   return newBoard; 
 };
 
+const isValidCoords = (board, coords) => {
+  if (!coords) return false
+  const [x, y] = coords;
+  const coordsContent = board[x][y];
+
+  if (coordsContent) {
+    return false;
+  }
+
+  return true;
+};
+
 const boardHasHorizontalLine = (board, player) => {
   const playerChar = getPlayerChar(player);
   const onlyPlayerChars = item => item === playerChar;
@@ -42,6 +54,10 @@ const boardHasHorizontalLine = (board, player) => {
   const line3Completed = board[2].filter(onlyPlayerChars).length === 3;
 
   return line1Completed || line2Completed || line3Completed;
+};
+
+const boardHasVerticalLine = (board, player) => {
+  
 };
 
 const ticTacToeMachine =  Machine({
@@ -56,7 +72,7 @@ const ticTacToeMachine =  Machine({
     idle: {
       entry: ['togglePlayer'],
       on: { 
-        PLAY: 'playing'
+        PLAY: { target: 'playing', cond: 'isValidCoords' }
       }
     },
     playing: {
@@ -86,7 +102,8 @@ const ticTacToeMachine =  Machine({
     })
   },
   guards: {
-    hasWinner: ctx => boardHasHorizontalLine(ctx.board, ctx.currentPlayer)
+    hasWinner: ctx => boardHasHorizontalLine(ctx.board, ctx.currentPlayer),
+    isValidCoords: (ctx, event) => isValidCoords(ctx.board, event.coords)
   }
 });
 
