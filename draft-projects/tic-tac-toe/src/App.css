@@ -7,9 +7,16 @@ body {
   color: #2B2C28;
 }
 
-h1, h2, h3 {
+h1, h2 {
   font-family: 'Roboto', sans-serif;
+}
+
+h1 {
   font-size: 48px;
+}
+
+h2 {
+  font-size: 40px;
 }
 
 .main {
