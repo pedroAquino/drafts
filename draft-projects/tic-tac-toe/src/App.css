@@ -11,3 +11,20 @@ h1, h2, h3 {
   font-family: 'Roboto', sans-serif;
   font-size: 48px;
 }
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  background: #2B2C28;
+  color: #F7F7FF;
+}
