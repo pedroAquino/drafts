@@ -11,6 +11,26 @@ const getCol = (matrix, col) => {
   return column;
 }
 
+const getDiagonal = (matrix, side) => {
+  let diagonal = [];
+  
+  if (side === 'left') {
+    for (let line=0; line<matrix.length; line++) {
+      diagonal.push(matrix[line][line]);
+    }
+  }
+
+  if (side === 'right') {
+    let col = 2;
+    for (let line=0; line<matrix.length; line++) {
+      diagonal.push(matrix[line][col]);
+      col--;
+    }
+  }
+
+  return diagonal;
+};
+
 // Board.js
 const Board = () => {
   return [
@@ -82,9 +102,25 @@ const boardHasVerticalLine = (board, player) => {
   return !!result;
 };
 
+const boardHasDiagonalLine = (board, player) => {
+  const playerChar = getPlayerChar(player);
+  const onlyPlayerChars = item => item === playerChar;
+
+  const leftDiagonal = getDiagonal(board, 'left')
+    .filter(onlyPlayerChars)
+    .length === 3;
+
+  const rightDiagonal = getDiagonal(board, 'right')
+    .filter(onlyPlayerChars)
+    .length === 3;
+
+  return leftDiagonal || rightDiagonal;
+};
+
 const hasWinner = (board, player) => {
   return boardHasHorizontalLine(board, player) ||
-    boardHasVerticalLine(board, player);
+    boardHasVerticalLine(board, player) ||
+    boardHasDiagonalLine(board, player);
 };
 
 // tcTacToeMachine.js
