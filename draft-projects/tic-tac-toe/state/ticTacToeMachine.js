@@ -123,6 +123,16 @@ const hasWinner = (board, player) => {
     boardHasDiagonalLine(board, player);
 };
 
+const boardIsComplete = board => {
+  const isEmpty = content => content === '';
+
+  const line1IsComplete = board[0].filter(isEmpty).length === 0;
+  const line2IsComplete = board[1].filter(isEmpty).length === 0;
+  const line3IsComplete = board[2].filter(isEmpty).length === 0;
+
+  return line1IsComplete && line2IsComplete && line3IsComplete;
+};
+
 // tcTacToeMachine.js
 const board = Board();
 
@@ -146,6 +156,7 @@ const ticTacToeMachine =  Machine({
       on: {
         '': [
           { target: 'done', cond: 'hasWinner' },
+          { target: 'tie', cond: 'boardIsComplete' },
           { target: 'idle' }
         ]
       }
@@ -153,6 +164,9 @@ const ticTacToeMachine =  Machine({
     done: { 
       entry: ['setWinner'],
       type: 'final' 
+    },
+    tie: {
+      type: 'final'
     }
   }
 }, {
@@ -169,7 +183,8 @@ const ticTacToeMachine =  Machine({
   },
   guards: {
     hasWinner: ctx => hasWinner(ctx.board, ctx.currentPlayer),
-    isValidCoords: (ctx, event) => isValidCoords(ctx.board, event.coords)
+    isValidCoords: (ctx, event) => isValidCoords(ctx.board, event.coords),
+    boardIsComplete: ctx => boardIsComplete(ctx.board)
   }
 });
 
