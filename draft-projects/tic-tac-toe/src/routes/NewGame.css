@@ -1,0 +1,5 @@
+.new-game {}
+
+.new-game > .new-game__board {
+  margin-top: 16px;
+}

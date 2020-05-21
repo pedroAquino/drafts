@@ -1,0 +1,8 @@
+.board {
+  border: 1px solid black;
+  width: 700px;
+}
+
+.board > .board__line {}
+
+.board > .board__line > .board__house {}
