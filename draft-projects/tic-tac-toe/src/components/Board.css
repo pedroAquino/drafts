@@ -11,8 +11,12 @@
   border: 1px solid black;
   width: 233.33px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 64px;
 }
 
 .board > .board__line > .board__house:hover {
-  opacity: 0.4;;
+  opacity: 0.4;
 }

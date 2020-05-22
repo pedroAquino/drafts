@@ -8,8 +8,8 @@ const BoardHouse = ({ children }) => {
 const BoardLine = () => {
   return (
     <div className="board__line">
-      <BoardHouse>{" "}</BoardHouse>
-      <BoardHouse>{" "}</BoardHouse>
+      <BoardHouse><div>{"X"}</div></BoardHouse>
+      <BoardHouse><div>{"O"}</div></BoardHouse>
       <BoardHouse>{" "}</BoardHouse>
     </div>
   );
