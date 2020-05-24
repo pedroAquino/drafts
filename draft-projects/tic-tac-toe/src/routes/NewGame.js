@@ -6,11 +6,15 @@ import './NewGame.css';
 
 const NewGame = () => {
   const [current, send] = useMachine(ticTacToeMachine);
-  const { board, winner, currentPlayer } = current.context;
+  const { board } = current.context;
+  const onHouseClick = coords => send({ type: 'PLAY', coords: coords });
   return (
     <div className="new-game">
       <div className="new-game__board">
-        <Board board={board} />
+        <Board 
+          board={board} 
+          onHouseClick={onHouseClick} 
+        />
       </div>
     </div>
   );
