@@ -11,7 +11,11 @@ const NewGame = () => {
   const onHouseClick = coords => send({ type: 'PLAY', coords: coords });
 
   if (state.value === 'done') {
-    return <Redirect to="/winner" />;
+    return <Redirect to={{
+        pathname: '/winner',
+        state: { winner: state.context.winner }
+      }} 
+    />;
   }
 
   if (state.value === 'tie') {

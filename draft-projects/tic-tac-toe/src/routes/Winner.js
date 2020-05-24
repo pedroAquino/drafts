@@ -1,14 +1,15 @@
 import React from 'react';
 import Button from '../components/Button';
 import { Link } from 'react-router-dom';
+import { getPlayerName } from '../state/Player';
 import './Winner.css';
 
-const Winner = () => {
-  const player = 'PLAYER 1';
+const Winner = ({ location }) => {
+  const playerName = getPlayerName(location.state.winner);
   return (
     <div className="winner">
       <h1>We have a winner !</h1>
-      <h2>Congrats {player}, you are the new champion</h2>
+      <h2>Congrats {playerName}, you are the new champion</h2>
       <div className="tryagain-button ">
         <Link to="/home">
           <Button>TRY AGAIN </Button>
