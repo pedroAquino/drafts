@@ -11,7 +11,7 @@ const Winner = ({ location }) => {
       <h1>We have a winner !</h1>
       <h2>Congrats {playerName}, you are the new champion</h2>
       <div className="tryagain-button ">
-        <Link to="/home">
+        <Link to="/newgame">
           <Button>TRY AGAIN </Button>
         </Link>
       </div>

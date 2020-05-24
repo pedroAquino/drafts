@@ -9,7 +9,7 @@ const Tie = () => {
       <h1>Hey guys, this is a Tie</h1>
       <h2>No one winns at this time</h2>
       <div className="tryagain-button">
-        <Link to="/home">
+        <Link to="/newgame">
           <Button>TRY AGAIN</Button>
         </Link>
       </div>
