@@ -1,7 +1,7 @@
 export const getCol = (matrix, col) => {
   let column = [];
 
-  for (let line=0; line<board.length; line++) {
+  for (let line=0; line<matrix.length; line++) {
     column.push(matrix[line][col])
   }
 

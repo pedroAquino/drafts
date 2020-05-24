@@ -5,22 +5,31 @@ const BoardHouse = ({ children }) => {
   return <div className="board__house">{children}</div>
 };
 
-const BoardLine = () => {
+const BoardLine = ({ lineContent }) => {
   return (
     <div className="board__line">
-      <BoardHouse><div>{"X"}</div></BoardHouse>
-      <BoardHouse><div>{"O"}</div></BoardHouse>
-      <BoardHouse>{" "}</BoardHouse>
+      {
+        lineContent.map((houseContent, index) => (
+          <BoardHouse key={index}>
+            <div>{houseContent}</div>
+          </BoardHouse>
+        ))
+      }
     </div>
   );
+
 };
 
-const Board = () => {
+const Board = ({ board }) => {
+  console.log('board', board);
+  
   return (
     <div className="board">
-      <BoardLine />
-      <BoardLine />
-      <BoardLine />
+      {
+        board.map((lineContent, index) => (
+          <BoardLine key={index} lineContent={lineContent} />
+        ))
+      }
     </div>
   );
 };

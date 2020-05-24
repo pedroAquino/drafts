@@ -1,6 +1,7 @@
 import Board from './Board';
 import actions from './actions';
 import guards from './guards';
+import { Machine } from 'xstate';
 
 const board = Board();
 
