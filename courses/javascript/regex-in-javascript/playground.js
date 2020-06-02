@@ -14,6 +14,8 @@ sat on
 the hat.`;
 const regex = /\./ig;
 
+// Use Regular Expressions to Find Repeated Patterns
+
 output(
   str,
   regex,
