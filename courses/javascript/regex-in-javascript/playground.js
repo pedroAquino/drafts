@@ -9,9 +9,13 @@ const output = (str, regex, target) => {
 // const regex = /ro/gi;
 
 // Find Plain Text Patterns using Regular Expressions
-const str = `AEIOU - aeiou - $1000 - 55.5%`;
+const str = `foo
+foobar
+foobaz
+fooboo
+`;
 
-const regex = /[\D]/g;
+const regex = /foo(bar|boo)?/g;
 
 // Use Regular Expressions to Find Repeated Patterns
 
