@@ -11,7 +11,7 @@ const output = (str, regex, target) => {
 // Find Plain Text Patterns using Regular Expressions
 const str = `cat mat bat Hat ?at 0at`;
 
-const regex = /[a-zA-Z0-9?]at/g;
+const regex = /[]at/g;
 
 // Use Regular Expressions to Find Repeated Patterns
 
