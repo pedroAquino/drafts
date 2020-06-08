@@ -9,10 +9,14 @@ const output = (str, regex, target) => {
 // const regex = /ro/gi;
 
 // Find Plain Text Patterns using Regular Expressions
-const str = `Cat 
-sat on 
-the hat.`;
-const regex = /\./ig;
+const str = `
+  http://egghead.io
+  not a web adddress
+  http://
+  https://www.egghead.io
+`;
+
+const regex = /https{0,}:\/\/.{1,}/g;
 
 // Use Regular Expressions to Find Repeated Patterns
 
