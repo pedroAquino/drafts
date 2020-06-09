@@ -1,5 +1,7 @@
 'use strict';
 
+// Use Character Classes in Regular Expressions
+
 const output = (str, regex, target) => {
   target.innerHTML = str.replace(regex, str => `<span>${str}</span>`);
 };

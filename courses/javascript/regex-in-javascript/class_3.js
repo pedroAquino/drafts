@@ -1,5 +1,7 @@
 'use strict';
 
+// Use Regular Expressions to Find Repeated Patterns
+
 var str = `http://egghead.io
 not a web address
 http://

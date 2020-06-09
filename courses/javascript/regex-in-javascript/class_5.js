@@ -1,10 +1,11 @@
 'use strict';
 
+// Use Shorthand Regular Expression Character Classes
+
 const output = (str, regex, target) => {
   target.innerHTML = str.replace(regex, str => `<span>${str}</span>`);
 };
 
-// 1 - Get Started with Regular Expressions in JavaScript
 // const str = 'Pedro Aquino';
 // const regex = /ro/gi;
 

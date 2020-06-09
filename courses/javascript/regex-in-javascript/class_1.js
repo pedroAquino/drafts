@@ -1,5 +1,7 @@
 'use strict';
 
+// Get Started with Regular Expressions in JavaScript
+
 const output = (str, regex, target) => {
   target.innerHTML =
     str.replace(regex, str => `<span>${str}</span>`);
