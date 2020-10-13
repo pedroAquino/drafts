@@ -5,12 +5,9 @@ const output = (str, regex, target) => {
 };
 
 // Find Patterns at the Start and End of Lines with Line Anchors in Regular Expressions
-const str = `12/1/16
-12-16-13
-11/12/16
-12-12-2016`;
+const str = `1123.456.abc.def`;
 
-var regex = /^12.+16$/gm;
+var regex = /ˆ.{3}\.$/g;
 
 output(
   str,
