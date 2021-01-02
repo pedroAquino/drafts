@@ -1,0 +1,79 @@
+/*
+  black = #2F3844
+  light-black = #49515C
+  dark-gray = #656A6F
+  light-gray = #E9EAEB
+  orange = #FB9F0A
+
+  green = #53C22B
+  yellow = #E6C029
+  red = #FB5953
+*/
+
+body {
+  background: #E9EAEB;
+}
+
+.calc-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: Arial;
+}
+
+.calc__display {
+  height: 50px;
+  padding: 8px;
+  background: #2F3844;
+  color: #E9EAEB;
+  font-size: 30px;
+  position: relative;
+}
+
+.calc__display-text {
+  position: absolute;
+  right: 8px;
+}
+
+.calc__button-line {
+  display: flex;
+  border-bottom: 1px solid #2F3844;
+}
+
+.calc__button-line:last-child {
+  border: 0;
+}
+
+.calc__button {
+  border-right: 1px solid #2F3844;
+}
+
+.calc__button button {
+  width: 50px;
+  height: 50px;
+  border-radius: unset;
+  border: 0;
+  color: #E9EAEB;
+  background: none;
+}
+
+.calc__button--bg-light-black {
+  background: #49515C;
+}
+
+.calc__button--bg-dark-gray {
+  background: #656A6F;
+}
+
+.calc__button--bg-orange {
+  background: #FB9F0A;
+}
+
+.calc__button--bigger {
+  flex: 2;
+}
+
+.calc__button:last-child {
+  border: 0;
+}
